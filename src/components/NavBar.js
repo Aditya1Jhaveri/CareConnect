@@ -9,7 +9,7 @@ function NavBar() {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar sticky-top">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
             CareConnect
@@ -48,6 +48,17 @@ function NavBar() {
                 onClick={handleClick}
               >
                 Contact Us
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/appointment"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Appointment
               </NavLink>
             </li>
           </ul>
