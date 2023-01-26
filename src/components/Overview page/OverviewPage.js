@@ -6,6 +6,8 @@ import { Contact } from './Contact'
 import NavBar from './NavBar'
 import PatientLogin from '../Login Form/PatientLogin'
 import DoctorLogin from '../Login Form/DoctorLogin'
+import DoctorForm from '../Doctor/Doctor Form/DoctorForm'
+import Signup from '../Patient/Patient Form/Signup'
 
 export default function OverviewPage() {
   return (
@@ -17,6 +19,8 @@ export default function OverviewPage() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/PatientLogin" element={<PatientLogin />} />
         <Route path="/DoctorLogin" element={<DoctorLogin />} />
+        <Route path="/DoctorForm" element={<DoctorForm />} />
+        <Route path="/Signup" element={<Signup />} />
       </Routes>
     </>
   )

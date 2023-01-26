@@ -1,0 +1,5 @@
+.MuiStepper-root {
+  display: flex;
+  padding: 24px;
+  justify-content: space-around;
+}

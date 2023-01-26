@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './NavBar.css'
-import { GiRocketThruster } from 'react-icons/gi'
+import CareConnectLogo from '../../images/CareConnectLogo.jpg'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
 import { NavLink } from 'react-router-dom'
@@ -25,7 +25,12 @@ function NavBar() {
         <nav className="navbar sticky-top">
           {/* <div className="navbar-container container"> */}
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            <GiRocketThruster className="navbar-icon" />
+            <img
+              src={CareConnectLogo}
+              alt=""
+              className="navbar-icon"
+              width={50}
+            />
             CareConnect
           </Link>
 
@@ -68,9 +73,16 @@ function NavBar() {
             </li>
 
             <li className="nav-item">
-              <Button className="signbutton" onClick={login}>
-                Sign
-              </Button>
+              <div
+                className={({ isActive }) =>
+                  'nav-links' + (isActive ? ' activated' : '')
+                }
+                onClick={closeMobileMenu}
+              >
+                <Button id="signbutton" onClick={login}>
+                  Sign In / Sign Up
+                </Button>
+              </div>
             </li>
           </ul>
           {/* </div> */}

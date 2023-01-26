@@ -13,9 +13,14 @@ export const DoctorLogin = (props) => {
     navigate('/PatientLogin')
   }
 
+  const todash = () => {
+    navigate('/DoctorDashboard')
+  }
+
   let [authMode, setAuthMode] = useState('signin')
   const changeAuthMode = () => {
     setAuthMode(authMode === 'signin' ? 'signup' : 'signin')
+    navigate('/DoctorForm')
   }
 
   if (authMode === 'signin') {
@@ -25,7 +30,10 @@ export const DoctorLogin = (props) => {
           <div className="Auth-form-content">
             <div className="container">
               <div className="inner-container">
-                <button type="button" class="btn btn-light btn-circle btn-xl">
+                <button
+                  type="button"
+                  className="btn btn-light btn-circle btn-xl"
+                >
                   <Avatar
                     alt="Remy Sharp"
                     src={DoctorIcon}
@@ -50,7 +58,7 @@ export const DoctorLogin = (props) => {
 
                 <button
                   type="button"
-                  class="btn btn-light btn-circle btn-xl"
+                  className="btn btn-light btn-circle btn-xl"
                   onClick={login}
                 >
                   <Avatar
@@ -75,7 +83,10 @@ export const DoctorLogin = (props) => {
                   </p>
                 </button>
 
-                <button type="button" class="btn btn-light btn-circle btn-xl">
+                <button
+                  type="button"
+                  className="btn btn-light btn-circle btn-xl"
+                >
                   <Avatar
                     alt="Remy Sharp"
                     src={AdminIcon}
@@ -100,32 +111,50 @@ export const DoctorLogin = (props) => {
               </div>
             </div>
 
-            <h3 className="Auth-form-title">Sign In</h3>
-            <div className="text-center">
-              <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
-            </div>
+            <h3 className="Auth-form-title">Doctor Sign In</h3>
+
             <div className="form-group mt-3">
               <TextField
-                type="email"
+                type="text"
                 className="form-control mt-1"
-                placeholder="Enter email"
+                placeholder="Enter Username"
+                variant="standard"
+                label="Username"
               />
             </div>
+
             <div className="form-group mt-3">
               <TextField
                 type="password"
                 className="form-control mt-1"
-                placeholder="Enter password"
+                placeholder="Enter Password"
+                variant="standard"
+                label="Password"
               />
             </div>
+
+            <div className="forpassword">
+              <span className="link-danger" onClick={changeAuthMode}>
+                Forgot password?
+              </span>
+            </div>
+
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={todash}
+              >
                 Submit
               </button>
             </div>
-            <p className="text-center mt-2">Forgot password</p>
+
+            <div className="text-center">
+              Not registered yet?{' '}
+              <span className="link-primary" onClick={changeAuthMode}>
+                Sign Up
+              </span>
+            </div>
           </div>
         </form>
       </div>

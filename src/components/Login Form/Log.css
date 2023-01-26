@@ -17,6 +17,9 @@
   padding-bottom: 20px;
   border-radius: 8px;
   background-color: white;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 50px;
 }
 
 .Auth-form-content {
@@ -53,9 +56,9 @@ label {
 .btn-circle.btn-xl:hover {
   /*opacity: 0.3;*/
   background: palegreen;
-  transform: scale(1.5); /* Equal to scaleX(2) scaleY(2) */
+  transform: scale(1.5);
   transition-duration: 0.5s;
-  /*transform: scale(0.6);*/
+  /* transform: scale(0.6); */
 }
 
 .container {
@@ -71,4 +74,25 @@ label {
 
   justify-content: space-evenly;
   align-items: center;
+}
+
+.link-danger {
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.link-primary {
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.forpassword {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.text-center {
+  margin-top: 20px;
 }
