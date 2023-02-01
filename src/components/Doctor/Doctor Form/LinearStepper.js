@@ -13,6 +13,7 @@ import Grid from '@mui/material/Grid'
 
 import InputAdornment from '@mui/material/InputAdornment'
 import FilledInput from '@mui/material/FilledInput'
+import { useNavigate } from 'react-router-dom'
 // import FormControl from '@mui/material/FormControl'
 // import InputLabel from '@mui/material/InputLabel'
 // import IconButton from '@mui/material/IconButton'
@@ -180,6 +181,7 @@ function getStepContent(step) {
             fullWidth
             margin="normal"
             name="clinicfees"
+            style={{ margin: 10 }}
             startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
         </>
@@ -294,6 +296,11 @@ const LinaerStepper = () => {
     setActiveStep(activeStep - 1)
   }
 
+  const navigate = useNavigate()
+  const todash = () => {
+    navigate('/DoctorDashboard')
+  }
+
   return (
     <div>
       <Stepper alternativeLabel activeStep={activeStep}>
@@ -323,9 +330,19 @@ const LinaerStepper = () => {
       </Stepper>
 
       {activeStep === steps.length ? (
-        <Typography variant="h3" align="center">
-          Thank You
-        </Typography>
+        <div>
+          <Typography variant="h3" align="center">
+            Thank You
+          </Typography>
+          <Button
+            className={classes.button}
+            variant="contained"
+            color="primary"
+            onClick={todash}
+          >
+            Go To Dashboard
+          </Button>
+        </div>
       ) : (
         <>
           <form>{getStepContent(activeStep)}</form>

@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Fade from '@material-ui/core/Fade'
 import { Avatar, makeStyles } from '@material-ui/core'
 // import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import DoctorIcon from '../../images/DoctorIcon.png'
+import DoctorIcon from '../../../images/DoctorIcon.png'
 
 const user = {
   name: 'Doctor',

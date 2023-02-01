@@ -31,7 +31,7 @@ body {
   padding: 10px 20px;
   border: none;
   outline: none;
-  background-image: linear-gradient(to right, #19d3ae, #0fcfec);
+  background-image: linear-gradient(to right, #19d3ae, #0ddfff);
   color: white;
   font-weight: 700;
   border-radius: 2px;
@@ -47,7 +47,7 @@ body {
 .doctorPortal .ourServices > div > p {
   font-size: 20px;
   font-weight: 900;
-  background: linear-gradient(#19d3ae, #0fcfec);
+  background: linear-gradient(#19d3ae, #0ddfff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -92,7 +92,7 @@ body {
 .ourDoctors h4,
 .contactUs h4 {
   margin-bottom: 30px;
-  background: linear-gradient(#19d3ae, #0fcfec);
+  background: linear-gradient(#19d3ae, #0ddfff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
@@ -106,7 +106,7 @@ body {
 .testimonial .patientinfo > p:first-child,
 .ourBlog .doctorinfo > p:first-child,
 .ourDoctors .doctorsInfo > p:first-child {
-  background: linear-gradient(#19d3ae, #0fcfec);
+  background: linear-gradient(#19d3ae, #0ddfff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
@@ -137,7 +137,7 @@ body {
   text-align: center;
 }
 .ourBlog .ourBlogDetails > *:first-child {
-  background: linear-gradient(to right, #19d3ae, #0fcfec);
+  background: linear-gradient(to right, #19d3ae, #0ddfff);
   color: white;
 }
 .ourDoctors .doctorsInfo {
@@ -178,7 +178,7 @@ body {
   margin-top: 10px;
 }
 .contactUs .contactUsDetails .submitBtn {
-  background: linear-gradient(to right, #19d3ae, #0fcfec);
+  background: linear-gradient(to right, #19d3ae, #0ddfff);
   margin-top: 10px;
   font-weight: 700;
   color: white;

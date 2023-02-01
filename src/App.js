@@ -1,8 +1,9 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import OverviewPage from './components/Overview page/OverviewPage'
-import DoctorDashboard from './components/Doctor/DoctorDashboard'
+
 import PatientDashboard from './components/Patient/PatientDashboard'
+import DoctorDashboard from './components/Doctor/DoctorDashboard'
 
 function App() {
   return (

@@ -223,23 +223,6 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="contactUs">
-          <div>
-            <h4>Contact Us</h4>
-            <h1>Always contact with us</h1>
-            <div className="contactUsDetails">
-              <div>
-                <input placeholder="Email Address*" type="text" />
-                <br />
-                <input placeholder="Subject*" type="text" />
-                <br />
-                <input placeholder="Your Message*" type="text" />
-                <br />
-                <Button className="submitBtn">Submit</Button>
-              </div>
-            </div>
-          </div>
-        </div>
         <Footer></Footer>
       </div>
     </div>

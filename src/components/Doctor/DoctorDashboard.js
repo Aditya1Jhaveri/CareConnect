@@ -1,150 +1,156 @@
-import React, { useState } from 'react'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import { RxDashboard } from 'react-icons/rx'
-import { FaHistory } from 'react-icons/fa'
+import React from 'react'
+import './Dashboard.css'
+// import { useEffect } from 'react'
+import { useState } from 'react'
+import { TableContainer, Paper, Select, MenuItem } from '@material-ui/core'
 
-import './DDash.css'
-import CareConnectLogo from '../../images/CareConnectLogo.jpg'
-import Profile from './Profile'
+import { User } from './User'
 
-function DoctorDashboard() {
-  const [showNav, setShowNav] = useState(false)
+import { Table } from 'react-bootstrap'
+import DoctorSidebar from './Doctor Sidebar/DoctorSidebar'
+
+const DoctorDashboard = () => {
+  // const [appointment, setAppointment] = useState([])
+  const [action1, setAction1] = useState(null)
+  const [key, setKey] = useState(null)
+
+  // const pendingAppointment = appointment.filter(
+  //   (pa) => pa.action1 === 'pending',
+  // )
+  // const todaysDate = new Date()
+  // const day = todaysDate.getDate()
+  // const month = todaysDate.getMonth()
+  // const year = todaysDate.getFullYear()
+  // const fullTodaysDate = month + 1 + '/' + day + '/' + year
+  // const selectedDateAppointment = appointment.filter(
+  //   (appointment) => appointment.details.date === fullTodaysDate,
+  // )
+
+  // const handleChange = (event) => {
+  //     let action1 = event.target.value;
+  //     const actions = { action1: action1, key };
+  //     fetch("https://guarded-anchorage-08361.herokuapp.com/modifyAction1ByKey", {
+  //         method: "post",
+  //         headers: {
+  //             "Content-type": "application/json"
+  //         },
+  //         body: JSON.stringify(actions)
+  //     })
+  //         .then(response => response.json())
+  //         .then(data => {
+  //             setAction1(data)
+  //             console.log(data);
+  //         })
+  // }
+
+  // useEffect(() => {
+  //     fetch("https://guarded-anchorage-08361.herokuapp.com/appointment")
+  //         .then(res => res.json())
+  //         .then(data => {
+  //             const fetchedData = data.reverse()
+  //             setAppointment(fetchedData);
+  //         });
+  // }, [action1]);
 
   return (
-    <div className={`body-area${showNav ? ' body-pd' : ''}`}>
-      <header className={`header${showNav ? ' body-pd' : ''}`}>
-        <div className="header_toggle">
-          <i
-            className={`bi ${showNav ? 'bi-x' : 'bi-list'}`}
-            onClick={() => setShowNav(!showNav)}
-          />
-        </div>
-        <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>CareConnect</h2>
-
-        <Profile />
-
-        {/* <div className="header_img">
-          <img
-            src="https://reqres.in/img/faces/5-image.jpg"
-            alt="Clue Mediator"
-          />
-        </div> */}
-      </header>
-      <div className={`l-navbar${showNav ? ' show' : ''}`}>
-        <nav className="nav">
-          <div>
-            <a href="/" className="nav_logo">
-              <img
-                src={CareConnectLogo}
-                alt=""
-                className="navbar-icon"
-                width={30}
-              />
-              <span className="nav_logo-name">CareConnect</span>
-            </a>
-
-            <div className="nav_list">
-              <a href="/" className="nav_link">
-                <RxDashboard style={{ fontSize: '1.5rem' }} />
-                <span className="nav_name">DashBoard</span>
-              </a>
-
-              <a href="/" className="nav_link">
-                <i
-                  className="bi bi-person-check nav_icon"
-                  style={{ fontSize: '1.5rem' }}
-                />
-                <span className="nav_name">Add Appointment</span>
-              </a>
-
-              <a href="https://cluemediator.com" className="nav_link">
-                <FaHistory style={{ fontSize: '1.5rem' }} />
-                <span className="nav_name">Patient History</span>
-              </a>
+    <div>
+      <DoctorSidebar />
+      <div className="dashboard">
+        <div className="dashboardTable">
+          <div className="dashboardHeading">
+            <div style={{ backgroundColor: 'tomato' }}>
+              {/* <h1>{pendingAppointment.length}</h1> */}
+              <p>
+                Pending
+                <br />
+                Appointments
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'deepskyblue' }}>
+              {/* <h1>{selectedDateAppointment.length}</h1> */}
+              <p>
+                Today's
+                <br />
+                Appointments
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'mediumseagreen' }}>
+              <h1>{User.length}</h1>
+              <p>
+                Total
+                <br />
+                Appointments
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'orange' }}>
+              <h1>{User.length}</h1>
+              <p>
+                Total
+                <br />
+                Patients
+              </p>
             </div>
           </div>
-          <a href="/" className="nav_link">
-            <i
-              className="bi bi-box-arrow-left nav_icon"
-              style={{ fontSize: '1.5rem' }}
-            />
-            <span className="nav_name">SignOut</span>
-          </a>
-        </nav>
-      </div>
-      <div className="pt-4 pb-4">
-        <h4>What is Lorem Ipsum?</h4>
-        <p className="fs-5 text-secondary">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-        <h4>Why do we use it?</h4>
-        <p className="fs-5 text-secondary">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-        <h4>What is Lorem Ipsum?</h4>
-        <p className="fs-5 text-secondary">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-        <h4>Why do we use it?</h4>
-        <p className="fs-5 text-secondary">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
-        <h4>What is Lorem Ipsum?</h4>
-        <p className="fs-5 text-secondary">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
-        <h4>Why do we use it?</h4>
-        <p className="fs-5 text-secondary">
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like).
-        </p>
+          <div className="dashboardTableDetails">
+            <div className="table-responsive">
+              <p>Recent Appointments</p>
+              <TableContainer component={Paper}>
+                <Table>
+                  <thead>
+                    <tr>
+                      <td align="left">Sr. No</td>
+                      <td align="center">Date</td>
+                      <td align="center">Time</td>
+                      <td align="left">Name</td>
+                      <td align="center">Contact</td>
+                      <td align="center">Prescription</td>
+                      <td align="center">Action</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {User.map((appoint) => (
+                      <tr key={appoint._id}>
+                        <td align="left" data-th="Sr. No">
+                          {User.indexOf(appoint) + 1}
+                        </td>
+                        <td align="center" data-th="Date">
+                          {appoint.date}
+                        </td>
+                        <td align="center" data-th="Time">
+                          {appoint.time}
+                        </td>
+                        <td align="left" data-th="Name">
+                          {appoint.name}
+                        </td>
+                        <td align="center" data-th="Contact">
+                          {appoint.phoneNumber}
+                        </td>
+                        <td align="center" data-th="Prescription">
+                          Not Added
+                        </td>
+                        <td
+                          data-th="Action"
+                          onMouseOver={() => setKey(appoint.key)}
+                          align="center"
+                        >
+                          <Select
+                            style={{ color: 'white' }}
+                            className="actionSelect"
+                            value={appoint.action1}
+                            // onChange={handleChange}
+                          >
+                            <MenuItem value={'pending'}>Pending</MenuItem>
+                            <MenuItem value={'approved'}>Approved</MenuItem>
+                          </Select>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              </TableContainer>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )

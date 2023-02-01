@@ -5,7 +5,7 @@
 }
 
 .navbar {
-  background: #4fab34;
+  background: #62d33f;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -85,7 +85,7 @@
 }
 
 .activated {
-  color: #09bef0;
+  color: #0ddfff;
 }
 
 .fa-bars {

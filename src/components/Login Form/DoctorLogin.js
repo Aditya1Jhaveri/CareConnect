@@ -1,11 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import { TextField } from '@material-ui/core'
 import React, { useState } from 'react'
-import './Log.css'
+import './dLog.css'
 import Avatar from '@material-ui/core/Avatar'
 import DoctorIcon from '../../images/DoctorIcon.png'
 import PatientIcon from '../../images/PatientIcon.png'
 import AdminIcon from '../../images/AdminIcon.jpeg'
-import { useNavigate } from 'react-router-dom'
 
 export const DoctorLogin = (props) => {
   const navigate = useNavigate()
@@ -115,6 +115,7 @@ export const DoctorLogin = (props) => {
 
             <div className="form-group mt-3">
               <TextField
+                required
                 type="text"
                 className="form-control mt-1"
                 placeholder="Enter Username"
@@ -130,6 +131,7 @@ export const DoctorLogin = (props) => {
                 placeholder="Enter Password"
                 variant="standard"
                 label="Password"
+                autoComplete="current-password"
               />
             </div>
 

@@ -1,6 +1,6 @@
 import { TextField } from '@material-ui/core'
 import React, { useState } from 'react'
-import './Log.css'
+import './plog.css'
 import Avatar from '@material-ui/core/Avatar'
 import DoctorIcon from '../../images/DoctorIcon.png'
 import PatientIcon from '../../images/PatientIcon.png'
@@ -27,7 +27,7 @@ export const PatientLogin = (props) => {
   if (authMode === 'signin') {
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form">
+        <form className="auth-form">
           <div className="Auth-form-content">
             <div className="container">
               <div className="inner-container">
