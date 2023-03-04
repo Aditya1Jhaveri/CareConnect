@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import {
   Typography,
   TextField,
@@ -7,13 +7,14 @@ import {
   Step,
   StepLabel,
   Card,
-} from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
-import Grid from '@mui/material/Grid'
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+import InputAdornment from "@mui/material/InputAdornment";
+import FilledInput from "@mui/material/FilledInput";
+import { useNavigate } from "react-router-dom";
 
-import InputAdornment from '@mui/material/InputAdornment'
-import FilledInput from '@mui/material/FilledInput'
-import { useNavigate } from 'react-router-dom'
 // import FormControl from '@mui/material/FormControl'
 // import InputLabel from '@mui/material/InputLabel'
 // import IconButton from '@mui/material/IconButton'
@@ -24,15 +25,15 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: theme.spacing(1),
   },
-}))
+}));
 
 function getSteps() {
   return [
-    'Doctor information',
-    'Clinic Details',
+    "Doctor information",
+    "Clinic Details",
     // 'Personal Information',
-    'Set Password',
-  ]
+    "Set Password",
+  ];
 }
 
 function getStepContent(step) {
@@ -50,17 +51,6 @@ function getStepContent(step) {
               margin="normal"
               name="firstName"
               type="text"
-            />
-
-            <TextField
-              id="age"
-              label="Age"
-              variant="filled"
-              placeholder="Enter Your Age"
-              fullWidth
-              margin="normal"
-              name="age"
-              type="number"
             />
 
             <Card style={{ marginTop: 10, marginBottom: 10 }}>
@@ -89,12 +79,36 @@ function getStepContent(step) {
               </Grid>
             </Card>
 
+            {/* <Box
+              component="form"
+              sx={{
+                "& .MuiTextField-root": { m: 2 },
+              }}
+              noValidate
+              autoComplete="off"
+            > */}
+
             <TextField
+              style={{ marginLeft: 25 }}
+              id="age"
+              label="Age"
+              variant="filled"
+              placeholder="Enter Your Age"
+              margin="normal"
+              name="age"
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">Year</InputAdornment>
+                ),
+              }}
+            />
+
+            <TextField
+              style={{ marginLeft: 250 }}
               id="mobile no"
               label="Mobile No"
               variant="filled"
               placeholder="Enter Your Mobile No"
-              fullWidth
               margin="normal"
               name="phoneNumber"
               type="number"
@@ -104,6 +118,7 @@ function getStepContent(step) {
               id="degree"
               label="Degree"
               variant="filled"
+              multiline
               placeholder="Enter Your Degree"
               fullWidth
               margin="normal"
@@ -112,28 +127,29 @@ function getStepContent(step) {
             />
 
             <TextField
+              style={{ marginLeft: 25 }}
               id="experience"
               label="Your Experience"
               variant="filled"
               placeholder="Enter Your Experience Years"
-              fullWidth
               margin="normal"
               name="experience"
               type="text"
             />
 
             <TextField
+              style={{ marginLeft: 250 }}
               id="specialization"
               label="Your Specialization"
               variant="filled"
               placeholder="Enter Your Specialization"
-              fullWidth
               margin="normal"
               name="specialization"
             />
+            {/* </Box> */}
           </div>
         </form>
-      )
+      );
 
     case 1:
       return (
@@ -153,10 +169,9 @@ function getStepContent(step) {
 
           <TextField
             id="clinic-number"
-            label="Clinic Number"
+            label="Clinic Contact No"
             variant="filled"
             placeholder="Enter Your Clinic Lanline Number"
-            fullWidth
             margin="normal"
             name="clinicnumber"
             type="number"
@@ -164,7 +179,18 @@ function getStepContent(step) {
 
           <TextField
             id="time-slot"
-            label="TimmingSlot"
+            label="Timming Slot From"
+            variant="filled"
+            placeholder="Enter Your Timming Slot"
+            fullWidth
+            margin="normal"
+            name="timeslot"
+            type="time"
+          />
+
+          <TextField
+            id="time-slot"
+            label="Timming Slot to"
             variant="filled"
             placeholder="Enter Your Timming Slot"
             fullWidth
@@ -178,14 +204,17 @@ function getStepContent(step) {
             label="Clinic Fees"
             variant="filled"
             placeholder="Enter Your Clinic Charges"
-            fullWidth
             margin="normal"
             name="clinicfees"
             style={{ margin: 10 }}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">RS</InputAdornment>
+              ),
+            }}
           />
         </>
-      )
+      );
     // case 2:
     //   return (
     //     <>
@@ -271,42 +300,42 @@ function getStepContent(step) {
             type="password"
           />
         </>
-      )
+      );
     default:
-      return 'unknown step'
+      return "unknown step";
   }
 }
 
 const LinaerStepper = () => {
-  const classes = useStyles()
-  const [activeStep, setActiveStep] = useState(0)
-  const [skippedSteps, setSkippedSteps] = useState([])
-  const steps = getSteps()
+  const classes = useStyles();
+  const [activeStep, setActiveStep] = useState(0);
+  const [skippedSteps, setSkippedSteps] = useState([]);
+  const steps = getSteps();
 
   const isStepSkipped = (step) => {
-    return skippedSteps.includes(step)
-  }
+    return skippedSteps.includes(step);
+  };
 
   const handleNext = () => {
-    setActiveStep(activeStep + 1)
-    setSkippedSteps(skippedSteps.filter((skipItem) => skipItem !== activeStep))
-  }
+    setActiveStep(activeStep + 1);
+    setSkippedSteps(skippedSteps.filter((skipItem) => skipItem !== activeStep));
+  };
 
   const handleBack = () => {
-    setActiveStep(activeStep - 1)
-  }
+    setActiveStep(activeStep - 1);
+  };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const todash = () => {
-    navigate('/DoctorDashboard')
-  }
+    navigate("/DoctorDashboard");
+  };
 
   return (
     <div>
       <Stepper alternativeLabel activeStep={activeStep}>
         {steps.map((step, index) => {
-          const labelProps = {}
-          const stepProps = {}
+          const labelProps = {};
+          const stepProps = {};
           // if (isStepOptional(index)) {
           //   labelProps.optional = (
           //     <Typography
@@ -319,13 +348,13 @@ const LinaerStepper = () => {
           //   )
           // }
           if (isStepSkipped(index)) {
-            stepProps.completed = false
+            stepProps.completed = false;
           }
           return (
             <Step {...stepProps} key={index}>
               <StepLabel {...labelProps}>{step}</StepLabel>
             </Step>
-          )
+          );
         })}
       </Stepper>
 
@@ -360,12 +389,12 @@ const LinaerStepper = () => {
             color="primary"
             onClick={handleNext}
           >
-            {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            {activeStep === steps.length - 1 ? "Finish" : "Next"}
           </Button>
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default LinaerStepper
+export default LinaerStepper;

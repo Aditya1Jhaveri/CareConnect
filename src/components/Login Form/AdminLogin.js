@@ -14,14 +14,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-export const DoctorLogin = (props) => {
+export const AdminLogin = (props) => {
   const navigate = useNavigate();
 
   const patLogin = () => {
     navigate("/PatientLogin");
   };
-  const adLogin = () => {
-    navigate("/AdminLogin");
+  const docLogin = () => {
+    navigate("/DoctorLogin");
   };
 
   // const login = () => {
@@ -88,7 +88,9 @@ export const DoctorLogin = (props) => {
   };
 
   const validation = Yup.object().shape({
-    email: Yup.string().required("Email is required").email("Email is invalid"),
+    userName: Yup.string()
+      .required("Username is required")
+      .min(6, "Username must be at least 6 characters"),
 
     password: Yup.string()
       .required("Password is required")
@@ -118,6 +120,7 @@ export const DoctorLogin = (props) => {
                 <button
                   type="button"
                   className="btn btn-light btn-circle btn-xl"
+                  onClick={docLogin}
                 >
                   <Avatar
                     alt="Remy Sharp"
@@ -171,7 +174,6 @@ export const DoctorLogin = (props) => {
                 <button
                   type="button"
                   className="btn btn-light btn-circle btn-xl"
-                  onClick={adLogin}
                 >
                   <Avatar
                     alt="Remy Sharp"
@@ -197,19 +199,19 @@ export const DoctorLogin = (props) => {
               </div>
             </div>
 
-            <h3 className="Auth-form-title">Doctor Sign In</h3>
+            <h3 className="Auth-form-title">Admin Sign In</h3>
 
             <div className="form-group mt-3">
               <TextField
                 type="text"
-                name="email"
+                name="userName"
                 className="form-control mt-1"
-                placeholder="Enter Email Id"
+                placeholder="Enter Username"
                 variant="standard"
-                label="Email"
-                {...register("email")}
-                error={errors.email ? "is-invalid" : ""}
-                helperText={errors.email?.message}
+                label="UserName"
+                {...register("userName")}
+                error={errors.userName ? "is-invalid" : ""}
+                helperText={errors.userName?.message}
               />
               {/* <div className="invalid-feedback">{errors.userName?.message}</div> */}
             </div>
@@ -239,11 +241,11 @@ export const DoctorLogin = (props) => {
               <div className="invalid-feedback">{errors.password?.message}</div>
             </div>
 
-            <div className="forpassword">
+            {/* <div className="forpassword">
               <span className="link-danger" onClick={changeAuthMode}>
                 Forgot password?
               </span>
-            </div>
+            </div> */}
 
             <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary">
@@ -251,16 +253,16 @@ export const DoctorLogin = (props) => {
               </button>
             </div>
 
-            <div className="text-center">
+            {/* <div className="text-center">
               Not registered yet?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
                 Sign Up
               </span>
-            </div>
+            </div> */}
           </div>
         </form>
       </div>
     );
   }
 };
-export default DoctorLogin;
+export default AdminLogin;
