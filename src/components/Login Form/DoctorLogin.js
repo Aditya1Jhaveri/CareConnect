@@ -105,7 +105,7 @@ export const DoctorLogin = (props) => {
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
-    navigate("/DoctorDashboard");
+    navigate("/DocAccount");
   };
 
   if (authMode === "signin") {

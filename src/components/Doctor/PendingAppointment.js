@@ -1,5 +1,5 @@
 import React from "react";
-import "./Dashboard.css";
+import "./pendappointment.css";
 // import { useEffect } from 'react'
 import { useState } from "react";
 import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
@@ -9,7 +9,7 @@ import { User } from "./User";
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
-const DoctorDashboard = () => {
+const Pendingappointment = () => {
   // const [appointment, setAppointment] = useState([])
   const [action1, setAction1] = useState(null);
   const [key, setKey] = useState(null);
@@ -57,9 +57,8 @@ const DoctorDashboard = () => {
       <DoctorSidebar />
       <div className="dashboard">
         <div className="dashboardTable">
-          <div className="dashboardHeading">
+          {/* <div className="dashboardHeading">
             <div style={{ backgroundColor: "tomato" }}>
-              {/* <h1>{pendingAppointment.length}</h1> */}
               <p>
                 Pending
                 <br />
@@ -67,7 +66,7 @@ const DoctorDashboard = () => {
               </p>
             </div>
             <div style={{ backgroundColor: "deepskyblue" }}>
-              {/* <h1>{selectedDateAppointment.length}</h1> */}
+           
               <p>
                 Today's
                 <br />
@@ -90,10 +89,10 @@ const DoctorDashboard = () => {
                 Patients
               </p>
             </div>
-          </div>
+          </div> */}
           <div className="dashboardTableDetails">
             <div className="table-responsive">
-              <p>Recent Appointments</p>
+              <p>Pending Appointments</p>
               <TableContainer component={Paper}>
                 <Table>
                   <thead>
@@ -142,8 +141,9 @@ const DoctorDashboard = () => {
                             // onChange={handleChange}
                           >
                             <MenuItem>
-                              <em>Approved</em>
+                              <em>Pending</em>
                             </MenuItem>
+                            <MenuItem value={"approved"}>Approved</MenuItem>
                           </Select>
                         </td>
                       </tr>
@@ -159,4 +159,4 @@ const DoctorDashboard = () => {
   );
 };
 
-export default DoctorDashboard;
+export default Pendingappointment;

@@ -50,6 +50,14 @@ function DoctorSidebar() {
                 <span className="nav_name">DashBoard</span>
               </a>
 
+              <a href="/PendingAppointment" className="nav_link">
+                <i
+                  className="bi bi-person-check nav_icon"
+                  style={{ fontSize: "1.5rem" }}
+                />
+                <span className="nav_name">Pending Appointment</span>
+              </a>
+
               <a href="/" className="nav_link">
                 <i
                   className="bi bi-person-check nav_icon"

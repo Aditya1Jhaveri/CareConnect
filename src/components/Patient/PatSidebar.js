@@ -4,11 +4,10 @@ import { RxDashboard } from "react-icons/rx";
 import { FaHistory } from "react-icons/fa";
 
 import "./PatSidebar.css";
-import CareConnectLogo from "../../../images/CareConnectLogo.jpg";
+import CareConnectLogo from "../../images/CareConnectLogo.jpg";
 
-import Clickout from "../Clickout";
 import Patprofile from "./Patprofile";
-// import Patprofile from "./Patprofile";
+import Clickout from "../Doctor/Clickout";
 
 function PatientSidebar() {
   const [showNav, setShowNav] = useState(false);
@@ -30,7 +29,7 @@ function PatientSidebar() {
         </div>
         <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>CareConnect</h2>
 
-        <Patprofile/>
+        <Patprofile />
       </header>
       <div className={`l-navbar${showNav ? " show" : ""}`}>
         <nav className="nav">
@@ -46,7 +45,7 @@ function PatientSidebar() {
             </a>
 
             <div className="nav_list">
-              <a href="/DoctorDashboard" className="nav_link">
+              <a href="/PatientDashboard" className="nav_link">
                 <RxDashboard style={{ fontSize: "1.5rem" }} />
                 <span className="nav_name">DashBoard</span>
               </a>

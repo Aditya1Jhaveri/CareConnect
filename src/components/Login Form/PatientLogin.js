@@ -52,7 +52,7 @@ export const PatientLogin = (props) => {
 
   const onSubmit = (data) => {
     console.log(JSON.stringify(data, null, 2));
-    navigate("/PatientDashboard");
+    navigate("/PatAccount");
   };
 
   if (authMode === "signin") {

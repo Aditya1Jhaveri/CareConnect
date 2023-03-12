@@ -1,0 +1,102 @@
+.dashboard {
+    background-color: #e1f1f3;
+  }
+  
+  .dashboardTable{
+    padding-top: 50px;
+
+  }
+  .dashboardHeading {
+    display: flex;
+    margin-left: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .dashboardHeading > div {
+    color: white;
+    display: flex;
+    padding: 20px;
+    margin: 20px 30px;
+    height: 100px;
+    width: 220px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .dashboardHeading > div > h1 {
+    font-size: 50px;
+  }
+  .dashboardHeading > div > p {
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+  .dashboardTableDetails {
+    background-color: white;
+    margin-left: 100px;
+    border-radius: 5px;
+    margin-right: 50px;
+    text-align: justify;
+  }
+  .dashboardTableDetails p {
+    padding: 20px;
+    font-weight: 900;
+    background: linear-gradient(#19d3ae, #0fcfec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .dashboardTableDetails .actionSelect {
+    background-image: linear-gradient(#19d3ae, #0fcfec);
+    padding: 0px 5px;
+    border-radius: 4px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .dashboardHeading {
+      margin-right: 0px;
+      display: flex;
+    }
+    .dashboardTableDetails {
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .table thead {
+      display: none;
+    }
+  
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+      display: block;
+      width: 100%;
+    }
+    .table tr {
+      border-radius: 17px;
+      background-color: powderblue;
+      margin-bottom: 15px;
+    }
+  
+    .table tbody tr td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+    }
+  
+    .table td::before {
+      content: attr(data-th);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-left: 2px;
+      text-align: left;
+      font-weight: bold;
+    }
+  
+    .table th {
+      border: 2px solid rebeccapurple;
+    }
+  }
+  
