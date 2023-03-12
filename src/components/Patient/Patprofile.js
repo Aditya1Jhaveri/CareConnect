@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import { Avatar, makeStyles } from "@material-ui/core";
 // import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import DoctorIcon from "../../images/DoctorIcon.png";
+import PatientIcon from "../../images/PatientIcon.png";
 import { useNavigate } from "react-router-dom";
 
 const user = {
@@ -54,7 +54,7 @@ function Patprofile() {
           {user.name}
           <Avatar
             className={classes.avatar}
-            src={DoctorIcon}
+            src={PatientIcon}
             style={{
               marginLeft: "10px",
             }}
