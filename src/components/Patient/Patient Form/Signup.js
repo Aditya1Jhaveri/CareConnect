@@ -9,18 +9,16 @@ import {
   TextField,
   Button,
 } from "@material-ui/core";
-import "./Signup.css"
+
+import "./Signup.css";
 import axios from "axios";
-import { FormControl, MenuItem, Select,InputLabel } from '@mui/material';
-// import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import { FormControl, MenuItem, Select, InputLabel } from "@mui/material";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-// import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { width } from "@mui/system";
+import base_url from "../../../api/api";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -30,14 +28,8 @@ const Signup = () => {
 
   const validation = Yup.object().shape({
     Firstname: Yup.string().required("Firstname is required"),
-
     Middlename: Yup.string().required("Middlename is required"),
     Lastname: Yup.string().required("Lastname is required"),
-
-    // username: Yup.string()
-    //   .required("Username is required")
-    //   .min(6, "Username must be at least 6 characters")
-    //   .max(20, "Username must not exceed 20 characters"),
     email: Yup.string().required("Email is required").email("Email is invalid"),
 
     // gender: Yup.string()
@@ -70,58 +62,36 @@ const Signup = () => {
     resolver: yupResolver(validation),
   });
 
-  const paperStyle = { padding: "30px 20px", width: 500,innerHeight:100,outerHeight:100, margin: "20px auto" };
+  const paperStyle = {
+    padding: "30px 20px",
+    width: 500,
+    innerHeight: 100,
+    outerHeight: 100,
+    margin: "20px auto",
+  };
   const headerStyle = { margin: 0 };
   const avatarStyle = { backgroundColor: "#1bbd7e" };
-  const marginTop = { marginTop: 5 };
 
-  // const [name, setName] = useState("")
-  // const [middlename, setMiddlename] = useState("")
-  // const [lastname, setLastname] = useState("")
-  // const [currentValue, setCurrentValue] = useState("")
-  // const [email, setEmail] = useState("")
+  const [user, setUser] = useState({});
 
-  // const [number, setNumber] = useState("")
+  const handleForm = () => {
+    console.log(user);
+    postdata(user);
+    // e.preventDefault();
+  };
 
-  // const [password, setPassword] = useState("")
-//   var jsonData = {
-//     "users": [
-//         {
-//             "firstname": name,
-//             "middlename": middlename,
-//             "lastname": lastname,
-//             "role": currentValue,
-//             "email": email,
-//             "mobileNo":number ,
-//             "password": password
-
-//         }
-//     ]
-//   }
-// console.log(jsonData);
-
-
-const [user, setUser] = useState({
-  firstname: "",
-  middlename: "",
-  lastname: "",
-  role: "",
-  email: "",
-  mobileNo: "",
-  password: "",
-});
-
-const { firstname, middlename, lastname,role,email,mobileNo,password } = user;
-
-const onInputChange = (e) => {
-  setUser({ ...user, [e.target.name]: e.target.value });
-};
-console.log(user)
-const onSubmit = async (e) => {
-  e.preventDefault();
-  await axios.post("http://localhost:9595/api/v1/user", user);
-  navigate("/PatientLogin");
-};
+  const postdata = (user) => {
+    axios.post(`${base_url}/api/v1/user`, user).then(
+      (response) => {
+        console.log(response);
+        navigate("/PatientLogin");
+        console.log("Success");
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle} width={200}>
@@ -134,85 +104,97 @@ const onSubmit = async (e) => {
             Please fill this form to create an account !
           </Typography>
         </Grid>
-        <form onSubmit={(e) => onSubmit(e)}>
-           <TextField
+        <form onSubmit={handleForm}>
+          <TextField
+            id="firstname"
             type="text"
             name="Firstname"
             className="form-control mt-1"
             variant="standard"
             label="Firstname"
             placeholder="Enter your Firstname"
-            onChange={(e) => onInputChange(e)}
-            {...register("Firstname")}
-            error={errors.Firstname ? "is-invalid" : ""}
-            helperText={errors.Firstname?.message}
+            // {...register("Firstname")}
+            // error={errors.Firstname ? "is-invalid" : ""}
+            // helperText={errors.Firstname?.message}
+            onChange={(e) => {
+              setUser({ ...user, firstname: e.target.value });
+            }}
           />
-           <TextField
+          <TextField
+            id="middlename"
             type="text"
             name="Middlename"
             className="form-control mt-1"
             variant="standard"
             label="Middlename"
             placeholder="Enter your Middlename"
-            onChange={(e) => onInputChange(e)}
-
-            {...register("Middlename")}
-            error={errors.Middlename ? "is-invalid" : ""}
-            helperText={errors.Middlename?.message}
+            // {...register("Middlename")}
+            // error={errors.Middlename ? "is-invalid" : ""}
+            // helperText={errors.Middlename?.message}
+            onChange={(e) => {
+              setUser({ ...user, middlename: e.target.value });
+            }}
           />
-           <TextField
+          <TextField
+            id="lastname"
             type="text"
             name="Lastname"
             className="form-control mt-1"
             variant="standard"
             label="Lastname"
             placeholder="Enter your Lastname"
-            onChange={(e) => onInputChange(e)}
-
-            {...register("Lastname")}
-            error={errors.Lastname ? "is-invalid" : ""}
-            helperText={errors.Lastname?.message}
+            // {...register("Lastname")}
+            // error={errors.Lastname ? "is-invalid" : ""}
+            // helperText={errors.Lastname?.message}
+            onChange={(e) => {
+              setUser({ ...user, lastname: e.target.value });
+            }}
           />
           <TextField
+            id="email"
             type="email"
             name="email"
             className="form-control mt-1"
             variant="standard"
             label="Email"
             placeholder="Enter your email"
-            onChange={(e) => onInputChange(e)}
-
-            {...register("email")}
-            error={errors.email ? "is-invalid" : ""}
-            helperText={errors.email?.message}
+            // {...register("email")}
+            // error={errors.email ? "is-invalid" : ""}
+            // helperText={errors.email?.message}
+            onChange={(e) => {
+              setUser({ ...user, email: e.target.value });
+            }}
           />
-          <FormControl variant="standard" sx={{  minWidth: 460 }}>
-        <InputLabel id="demo-simple-select-standard-label">Role</InputLabel>
-        <Select
-          labelId="demo-simple-select-standard-label"
-          id="role"
-          value={FormData.role}
-          onChange={(e) => onInputChange(e)}
-
-          label="Role"
-          width={460}
-        > 
-          <MenuItem value={"ROLE_PAT"}>Patient</MenuItem>
-          <MenuItem value={"ROLE_DOC"}>Doctor</MenuItem>
-          <MenuItem value={"ROLE_ADM"}>Admin</MenuItem>
-        </Select>
-      </FormControl>
+          <FormControl variant="standard" sx={{ minWidth: 460 }}>
+            <InputLabel id="demo-simple-select-standard-label">Role</InputLabel>
+            <Select
+              labelId="demo-simple-select-standard-label"
+              id="role"
+              value={FormData.role}
+              onChange={(e) => {
+                setUser({ ...user, role: e.target.value });
+              }}
+              label="Role"
+              width={460}
+            >
+              <MenuItem value={"ROLE_PAT"}>Patient</MenuItem>
+              <MenuItem value={"ROLE_DOC"}>Doctor</MenuItem>
+              <MenuItem value={"ROLE_ADM"}>Admin</MenuItem>
+            </Select>
+          </FormControl>
           <TextField
+            id="mobileNo"
             name="phonenumber"
             className="form-control mt-1"
             variant="standard"
             label="Phone Number"
             placeholder="Enter your phone number"
-            onChange={(e) => onInputChange(e)}
-
-            {...register("phonenumber")}
-            error={errors.phonenumber ? "is-invalid" : ""}
-            helperText={errors.phonenumber?.message}
+            // {...register("phonenumber")}
+            // error={errors.phonenumber ? "is-invalid" : ""}
+            // helperText={errors.phonenumber?.message}
+            onChange={(e) => {
+              setUser({ ...user, mobileNo: e.target.value });
+            }}
           />
           <TextField
             type="password"
@@ -221,22 +203,24 @@ const onSubmit = async (e) => {
             variant="standard"
             label="Password"
             placeholder="Enter your password"
-            {...register("password")}
-            error={errors.password ? "is-invalid" : ""}
-            helperText={errors.password?.message}
+            // {...register("password")}
+            // error={errors.password ? "is-invalid" : ""}
+            // helperText={errors.password?.message}
           />
           <TextField
+            id="password"
             type="password"
             name="confirmpassword"
             className="form-control mt-1"
             variant="standard"
             label="Confirm Password"
             placeholder="Confirm your password"
-            onChange={(e) => onInputChange(e)}
-
-            {...register("confirmpassword")}
-            error={errors.confirmpassword ? "is-invalid" : ""}
-            helperText={errors.confirmpassword?.message}
+            // {...register("confirmpassword")}
+            // error={errors.confirmpassword ? "is-invalid" : ""}
+            // helperText={errors.confirmpassword?.message}
+            onChange={(e) => {
+              setUser({ ...user, password: e.target.value });
+            }}
           />
           <FormControlLabel
             name="acceptterms"
@@ -246,13 +230,9 @@ const onSubmit = async (e) => {
             // {...register("acceptterms")}
             // error={errors.acceptterms ? "is-invalid" : ""}
             // helperText={errors.acceptterms?.message}
-          /><br></br>
-          <Button
-            id="signup"
-            type="submit"
-            variant="contained"
-            color="primary"
-          >
+          />
+          <br></br>
+          <Button id="signup" type="submit" variant="contained" color="primary">
             Sign up
           </Button>
         </form>

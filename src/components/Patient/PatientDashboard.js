@@ -1,27 +1,27 @@
-import React, { useState } from 'react'
-import 'bootstrap-icons/font/bootstrap-icons.css'
-import { RxDashboard } from 'react-icons/rx'
-import { FaHistory } from 'react-icons/fa'
+import React, { useState } from "react";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { RxDashboard } from "react-icons/rx";
+import { FaHistory } from "react-icons/fa";
 
-import './pdash.css'
-import CareConnectLogo from '../../images/CareConnectLogo.jpg'
-import PProfile from './PProfile'
+import "./pdash.css";
+import CareConnectLogo from "../../images/CareConnectLogo.jpg";
+import Patprofile from "./Patprofile";
 
 function PatientDashboard() {
-  const [showNav, setShowNav] = useState(false)
+  const [showNav, setShowNav] = useState(false);
 
   return (
-    <div className={`body-area${showNav ? ' body-pd' : ''}`}>
-      <header className={`header${showNav ? ' body-pd' : ''}`}>
+    <div className={`body-area${showNav ? " body-pd" : ""}`}>
+      <header className={`header${showNav ? " body-pd" : ""}`}>
         <div className="header_toggle">
           <i
-            className={`bi ${showNav ? 'bi-x' : 'bi-list'}`}
+            className={`bi ${showNav ? "bi-x" : "bi-list"}`}
             onClick={() => setShowNav(!showNav)}
           />
         </div>
         <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>CareConnect</h2>
 
-        <PProfile />
+        <Patprofile />
 
         {/* <div className="header_img">
           <img
@@ -30,7 +30,7 @@ function PatientDashboard() {
           />
         </div> */}
       </header>
-      <div className={`l-navbar${showNav ? ' show' : ''}`}>
+      <div className={`l-navbar${showNav ? " show" : ""}`}>
         <nav className="nav">
           <div>
             <a href="/" className="nav_logo">
@@ -45,18 +45,18 @@ function PatientDashboard() {
 
             <div className="nav_list">
               <a href="/" className="nav_link">
-                <RxDashboard style={{ fontSize: '1.5rem' }} />
+                <RxDashboard style={{ fontSize: "1.5rem" }} />
                 <span className="nav_name">DashBoard</span>
               </a>
               <a href="/" className="nav_link">
                 <i
                   className="bi bi-person-check nav_icon"
-                  style={{ fontSize: '1.5rem' }}
+                  style={{ fontSize: "1.5rem" }}
                 />
                 <span className="nav_name">Add Appointment</span>
               </a>
               <a href="https://cluemediator.com" className="nav_link">
-                <FaHistory style={{ fontSize: '1.5rem' }} />
+                <FaHistory style={{ fontSize: "1.5rem" }} />
                 <span className="nav_name">Patient History</span>
               </a>
             </div>
@@ -64,7 +64,7 @@ function PatientDashboard() {
           <a href="/" className="nav_link">
             <i
               className="bi bi-box-arrow-left nav_icon"
-              style={{ fontSize: '1.5rem' }}
+              style={{ fontSize: "1.5rem" }}
             />
             <span className="nav_name">SignOut</span>
           </a>
@@ -145,7 +145,7 @@ function PatientDashboard() {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default PatientDashboard
+export default PatientDashboard;
