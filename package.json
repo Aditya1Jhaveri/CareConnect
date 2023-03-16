@@ -1,5 +1,5 @@
 {
-  "name": "react-responsive-navbar",
+  "name": "CareConnect",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,6 +13,9 @@
     "@hookform/resolvers": "^2.9.11",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@material-ui/lab": "^4.0.0-alpha.61",
+    "@material-ui/pickers": "^3.3.10",
+    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-5.22.2.tgz",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.12",
     "@testing-library/jest-dom": "^5.16.5",

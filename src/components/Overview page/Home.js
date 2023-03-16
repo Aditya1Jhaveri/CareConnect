@@ -1,20 +1,20 @@
-import React from 'react'
-import { Card } from 'react-bootstrap'
-import './Home.css'
+import React from "react";
+import { Card } from "react-bootstrap";
+import "./Home.css";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-import Clinic from '../../images/clinic.jpg'
-import Appointment from '../../images/appointment.png'
-import Billing from '../../images/billing icon.png'
-import Security from '../../images/security icon.png'
-import Record from '../../images/patient record.png'
+import Clinic from "../../images/clinic.jpg";
+import Appointment from "../../images/appointment.png";
+import Billing from "../../images/billing icon.png";
+import Security from "../../images/security icon.png";
+import Record from "../../images/patient record.png";
 
-import { Button } from '@material-ui/core'
+import { Button } from "@material-ui/core";
 
-import ellips1 from '../../images/Ellipse 1.png'
+import ellips1 from "../../images/Ellipse 1.png";
 
-import Footer from './Footer/Footer'
+import Footer from "./Footer/Footer";
 
 const Home = () => {
   return (
@@ -39,7 +39,7 @@ const Home = () => {
                   helped in saving time as prescriptions, bills and other
                   calculations are maintained digitally.
                 </p>
-                <Link style={{ textDecoration: 'none' }} to="/appointment">
+                <Link style={{ textDecoration: "none" }} to="/AppointmentForm">
                   <Button className="button">GET APPOINTMENT</Button>
                 </Link>
               </div>
@@ -61,12 +61,12 @@ const Home = () => {
               <div>
                 <Card
                   style={{
-                    width: '21rem',
-                    border: 'none',
-                    boxShadow: '5px 5px 10px lightGray',
+                    width: "21rem",
+                    border: "none",
+                    boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Body style={{ textAlign: "center" }}>
                     <img src={Appointment} alt="" width={150} />
                     <h3>Appointment</h3>
                     <li>Set up timings without any hurdle.</li>
@@ -79,12 +79,12 @@ const Home = () => {
               <div>
                 <Card
                   style={{
-                    width: '21rem',
-                    border: 'none',
-                    boxShadow: '5px 5px 10px lightGray',
+                    width: "21rem",
+                    border: "none",
+                    boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Body style={{ textAlign: "center" }}>
                     <img src={Billing} alt="" width={150} />
                     <h3>Billing</h3>
                     <li>
@@ -98,12 +98,12 @@ const Home = () => {
               <div>
                 <Card
                   style={{
-                    width: '21rem',
-                    border: 'none',
-                    boxShadow: '5px 5px 10px lightGray',
+                    width: "21rem",
+                    border: "none",
+                    boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Body style={{ textAlign: "center" }}>
                     <img src={Security} alt="" width={150} />
                     <h3>Security</h3>
                     <li>We comply with the international data norms.</li>
@@ -118,12 +118,12 @@ const Home = () => {
               <div>
                 <Card
                   style={{
-                    width: '21rem',
-                    border: 'none',
-                    boxShadow: '5px 5px 10px lightGray',
+                    width: "21rem",
+                    border: "none",
+                    boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: 'center' }}>
+                  <Card.Body style={{ textAlign: "center" }}>
                     <img src={Record} alt="" width={150} />
                     <h3>Patient Records</h3>
                     <li>Improved care.</li>
@@ -149,12 +149,12 @@ const Home = () => {
             <div className="testimonialDetails">
               <Card
                 style={{
-                  width: '21rem',
-                  border: 'none',
-                  boxShadow: '5px 5px 10px lightGray',
+                  width: "21rem",
+                  border: "none",
+                  boxShadow: "5px 5px 10px lightGray",
                 }}
               >
-                <Card.Body style={{ textAlign: 'center' }}>
+                <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Perspiciatis, corporis molestiae maiores nihil dicta
@@ -163,7 +163,7 @@ const Home = () => {
                     maxime.
                   </Card.Text>
                 </Card.Body>
-                <Card.Header style={{ border: 'none', display: 'flex' }}>
+                <Card.Header style={{ border: "none", display: "flex" }}>
                   <img src={ellips1} alt="" />
                   <div className="patientinfo">
                     <p>Robiul Islam</p>
@@ -173,12 +173,12 @@ const Home = () => {
               </Card>
               <Card
                 style={{
-                  width: '21rem',
-                  border: 'none',
-                  boxShadow: '5px 5px 10px lightGray',
+                  width: "21rem",
+                  border: "none",
+                  boxShadow: "5px 5px 10px lightGray",
                 }}
               >
-                <Card.Body style={{ textAlign: 'center' }}>
+                <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Perspiciatis, corporis molestiae maiores nihil dicta
@@ -187,7 +187,7 @@ const Home = () => {
                     maxime.
                   </Card.Text>
                 </Card.Body>
-                <Card.Header style={{ border: 'none', display: 'flex' }}>
+                <Card.Header style={{ border: "none", display: "flex" }}>
                   <img src={ellips1} alt="" />
                   <div className="patientinfo">
                     <p>Robiul Islam</p>
@@ -197,12 +197,12 @@ const Home = () => {
               </Card>
               <Card
                 style={{
-                  width: '21rem',
-                  border: 'none',
-                  boxShadow: '5px 5px 10px lightGray',
+                  width: "21rem",
+                  border: "none",
+                  boxShadow: "5px 5px 10px lightGray",
                 }}
               >
-                <Card.Body style={{ textAlign: 'center' }}>
+                <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Perspiciatis, corporis molestiae maiores nihil dicta
@@ -211,7 +211,7 @@ const Home = () => {
                     maxime.
                   </Card.Text>
                 </Card.Body>
-                <Card.Header style={{ border: 'none', display: 'flex' }}>
+                <Card.Header style={{ border: "none", display: "flex" }}>
                   <img src={ellips1} alt="" />
                   <div className="patientinfo">
                     <p>Robiul Islam</p>
@@ -226,7 +226,7 @@ const Home = () => {
         <Footer></Footer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

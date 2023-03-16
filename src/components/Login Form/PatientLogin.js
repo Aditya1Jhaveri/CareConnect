@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 
-export const PatientLogin = (props) => {
+export const PatientLogin = () => {
   const navigate = useNavigate();
   const docLogin = () => {
     navigate("/DoctorLogin");
