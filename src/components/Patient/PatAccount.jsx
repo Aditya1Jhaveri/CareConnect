@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -7,26 +7,17 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-  MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem
-} from 'mdb-react-ui-kit';
-import DoctorSidebar from '../Doctor/Doctor Sidebar/DoctorSidebar';
+} from "mdb-react-ui-kit";
 import PatientIcon from "../../images/PatientIcon.png";
-import PatientSidebar from './PatSidebar';
+import PatientSidebar from "./PatSidebar";
 
-export const PprofilePage = () =>{
+export const PprofilePage = () => {
   return (
     <>
-    <PatientSidebar/>
-    <section style={{ backgroundColor: '#eee' }}>
-      <MDBContainer className="py-5">
-        {/* <MDBRow>
+      <PatientSidebar />
+      <section style={{ backgroundColor: "#eee" }}>
+        <MDBContainer className="py-5">
+          {/* <MDBRow>
           <MDBCol>
             <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
               <MDBBreadcrumbItem>
@@ -40,26 +31,27 @@ export const PprofilePage = () =>{
           </MDBCol>
         </MDBRow> */}
 
-        <MDBRow>
-          <MDBCol lg="4">
-            <MDBCard className="mb-4">
-              <MDBCardBody className="text-center">
-                <MDBCardImage
-                  src={PatientIcon}
-                  alt="avatar"
-                  className="rounded-circle"
-                  style={{ width: '150px' }}
-                  fluid />
-                <p className="text-muted mb-1">Naman Tyagi</p>
-                {/* <p className="text-muted mb-4">Bay Area, San Francisco, CA</p> */}
-                {/* <div className="d-flex justify-content-center mb-2">
+          <MDBRow>
+            <MDBCol lg="4">
+              <MDBCard className="mb-4">
+                <MDBCardBody className="text-center">
+                  <MDBCardImage
+                    src={PatientIcon}
+                    alt="avatar"
+                    className="rounded-circle"
+                    style={{ width: "150px" }}
+                    fluid
+                  />
+                  <p className="text-muted mb-1">Naman Tyagi</p>
+                  {/* <p className="text-muted mb-4">Bay Area, San Francisco, CA</p> */}
+                  {/* <div className="d-flex justify-content-center mb-2">
                   <MDBBtn>Follow</MDBBtn>
                   <MDBBtn outline className="ms-1">Message</MDBBtn>
                 </div> */}
-              </MDBCardBody>
-            </MDBCard>
+                </MDBCardBody>
+              </MDBCard>
 
-            {/* <MDBCard className="mb-4 mb-lg-0">
+              {/* <MDBCard className="mb-4 mb-lg-0">
               <MDBCardBody className="p-0">
                 <MDBListGroup flush className="rounded-3">
                   <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
@@ -85,69 +77,75 @@ export const PprofilePage = () =>{
                 </MDBListGroup>
               </MDBCardBody>
             </MDBCard> */}
-          </MDBCol>
-          <MDBCol lg="8">
-            <MDBCard className="mb-8">
-              <MDBCardBody style={{}}>
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Naman Om Tyagi</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Gender:</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Male</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Age:</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">45</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Email Id:</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">naman@gmail.com</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Contact No.:</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">0987654321</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Address</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">B-101,Swagat Rain Forest-3, Sargasan, Gandhinagar.</MDBCardText>
-                  </MDBCol>
-                </MDBRow>
-                
-                
-              </MDBCardBody>
-            </MDBCard>
+            </MDBCol>
+            <MDBCol lg="8">
+              <MDBCard className="mb-8">
+                <MDBCardBody style={{}}>
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Full Name</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        Naman Om Tyagi
+                      </MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Gender:</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">Male</MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Age:</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">45</MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Email Id:</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        naman@gmail.com
+                      </MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Contact No.:</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        0987654321
+                      </MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Address</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        B-101,Swagat Rain Forest-3, Sargasan, Gandhinagar.
+                      </MDBCardText>
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCard>
 
-            {/* <MDBRow>
+              {/* <MDBRow>
               <MDBCol md="6">
                 <MDBCard className="mb-4 mb-md-0">
                   <MDBCardBody>
@@ -212,11 +210,11 @@ export const PprofilePage = () =>{
                 </MDBCard>
               </MDBCol>
             </MDBRow> */}
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </section>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </section>
     </>
   );
-}
+};
 export default PprofilePage;

@@ -1,7 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import OverviewPage from "./components/Overview page/OverviewPage";
-
 import PatientDashboard from "./components/Patient/PatientDashboard";
 import DoctorDashboard from "./components/Doctor/DoctorDashboard";
 import DprofilePage from "./components/Doctor/Doctor Sidebar/DocAccount";

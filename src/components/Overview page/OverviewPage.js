@@ -7,7 +7,7 @@ import NavBar from "./NavBar";
 import PatientLogin from "../Login Form/PatientLogin";
 import DoctorLogin from "../Login Form/DoctorLogin";
 import DoctorForm from "../Doctor/Doctor Form/DoctorForm";
-import Signup from "../Patient/Patient Form/Signup";
+import Signup from "../Signup";
 import { AdminLogin } from "../Login Form/AdminLogin";
 
 export default function OverviewPage() {

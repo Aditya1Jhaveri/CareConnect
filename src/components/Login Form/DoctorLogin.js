@@ -9,12 +9,13 @@ import AdminIcon from "../../images/AdminIcon.jpeg";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
-
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { useFormik } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-export const DoctorLogin = (props) => {
+export const DoctorLogin = () => {
   const navigate = useNavigate();
 
   const patLogin = () => {
@@ -24,94 +25,63 @@ export const DoctorLogin = (props) => {
     navigate("/AdminLogin");
   };
 
-  // const login = () => {
-  //   navigate("/DoctorDashboard");
-  // };
-
   let [authMode, setAuthMode] = useState("signin");
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
-    navigate("/DoctorForm");
+    navigate("/Signup");
   };
 
-  // const [valueUser, setusername] = useState("");
-  // const [valuePassword, setPassword] = useState("");
-
-  // const [errors, setErrors] = useState({});
-
-  // async function login() {
-  //   let result = await fetch(
-  //     'https://driverportalapi.adsdev.uk/1/Authentication',
-  //     {
-  //       method: "Post",
-  //       mode: "cors",
-  //       body: JSON.stringify({ valueUser, valuePassword }),
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Accept: "application/json",
-  //       },
-  //     }
-  //   );
-  //   result = await result.json();
-  //   console.log(result);
-  //   if (result.response) {
-  //     localStorage.setItem("result", JSON.stringify(result));
-
-  //     navigate("/DoctorDashboard");
-  //   }
-  // }
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (validate()) window.alert("Ok done");
-  // };
-
-  // const [user, setUser] = useState({});
-  // const [pass, setPass] = useState({});
-
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm();
-
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   navigate("/DoctorDashboard");
-  //   // console.log(errors);
-  // };
-
   const [eye, setEye] = useState();
-
   const handleEye = () => {
     setEye(!eye);
   };
 
-  const validation = Yup.object().shape({
-    email: Yup.string().required("Email is required").email("Email is invalid"),
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      role: "ROLE_DOC",
+      password: "",
+    },
 
-    password: Yup.string()
-      .required("Password is required")
-      .min(6, "Password must be at least 6 characters"),
+    validationSchema: Yup.object({
+      username: Yup.string()
+        .email("Invalid email address")
+        .required("Email is required"),
+      password: Yup.string()
+        .required("Password is required")
+        .min(8, "Password must be at least 8 characters"),
+    }),
+    onSubmit: (values) => {
+      console.log("Form data:", values);
+
+      // Send the form data to the API endpoint using Axios
+      axios
+        .get("http://localhost:9595/api/v1/auth", {
+          headers: {
+            username: values.username,
+            role: values.role,
+            password: values.password,
+          },
+        })
+        .then((response) => {
+          console.log("API response:", response);
+          toast.success("SignUp successfull");
+          navigate("/DoctorForm");
+          toast.success("SignUp successfull");
+          // Handle successful response here, if needed
+        })
+        .catch((error) => {
+          console.error("API error:", error);
+          // toast.error("Please Enter Valid Details");
+          // Handle error response here, if needed
+        });
+    },
   });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(validation),
-  });
-
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data, null, 2));
-    navigate("/DocAccount");
-  };
 
   if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
-        <form className="Auth-form" onSubmit={handleSubmit(onSubmit)}>
+        <form className="Auth-form" onSubmit={formik.handleSubmit}>
           <div className="Auth-form-content">
             <div className="container">
               <div className="inner-container">
@@ -201,31 +171,44 @@ export const DoctorLogin = (props) => {
 
             <div className="form-group mt-3">
               <TextField
-                type="text"
-                name="email"
-                className="form-control mt-1"
-                placeholder="Enter Email Id"
-                variant="standard"
+                type="email"
+                id="username"
+                name="username"
                 label="Email"
-                {...register("email")}
-                error={errors.email ? "is-invalid" : ""}
-                helperText={errors.email?.message}
+                variant="standard"
+                fullWidth
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.username && Boolean(formik.errors.username)
+                }
+                helperText={formik.touched.username && formik.errors.username}
               />
-              {/* <div className="invalid-feedback">{errors.userName?.message}</div> */}
             </div>
+
+            <input
+              style={{ display: "none" }}
+              disabled
+              name="role"
+              value={formik.values.role}
+              onChange={formik.handleChange}
+              error={formik.touched.role && Boolean(formik.errors.role)}
+              helperText={formik.touched.role && formik.errors.role}
+            ></input>
 
             <div className="form-group mt-3">
               <TextField
                 type={eye ? "text" : "password"}
                 name="password"
-                placeholder="Enter Password"
+                className="form-control mt-1"
                 variant="standard"
                 label="Password"
-                autoComplete="current-password"
-                {...register("password")}
-                className={`form-control mt-1 ${
-                  errors.password ? "is-invalid" : ""
-                }`}
+                placeholder="Enter your password"
+                onChange={formik.handleChange}
+                error={
+                  formik.touched.password && Boolean(formik.errors.password)
+                }
+                helperText={formik.touched.password && formik.errors.password}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -236,7 +219,6 @@ export const DoctorLogin = (props) => {
                   ),
                 }}
               />
-              <div className="invalid-feedback">{errors.password?.message}</div>
             </div>
 
             <div className="forpassword">
