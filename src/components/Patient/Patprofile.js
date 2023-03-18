@@ -38,6 +38,10 @@ function Patprofile() {
     navigate("/PatAccount");
   };
 
+  const signout = () => {
+    navigate("/PatientLogin");
+  };
+
   return (
     <div>
       <div
@@ -71,7 +75,7 @@ function Patprofile() {
         TransitionComponent={Fade}
       >
         <MenuItem onClick={Profile}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={signout}>Logout</MenuItem>
       </Menu>
     </div>
   );

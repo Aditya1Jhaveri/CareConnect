@@ -1,0 +1,22 @@
+
+.mb-4{
+      margin-left: 100px;
+}
+
+.head{
+      padding-top: '40px';
+      text-align: 'center';
+}
+.cal{
+     
+      margin-top: "100px";
+}
+.img{
+      background-image: url(../../images/ApptImg.jpg);
+      background-size:100%;
+      background-position: fixed;
+      background-repeat: no-repeat;
+}
+.red-text{
+      color: green;
+}

@@ -80,6 +80,7 @@ export const DoctorLogin = () => {
 
   if (authMode === "signin") {
     return (
+      <div className="img2">
       <div className="Auth-form-container">
         <form className="Auth-form" onSubmit={formik.handleSubmit}>
           <div className="Auth-form-content">
@@ -241,6 +242,7 @@ export const DoctorLogin = () => {
             </div>
           </div>
         </form>
+      </div>
       </div>
     );
   }

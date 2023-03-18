@@ -7,3 +7,10 @@
     height: 100%;
     width: 500px;
 }
+
+.img{
+    background-image: url(../images/PatientIcon.png);
+    background-size:100%;
+    background-position: fixed;
+    background-repeat: no-repeat;
+}

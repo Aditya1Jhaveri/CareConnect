@@ -50,7 +50,7 @@ function PatientSidebar() {
                 <span className="nav_name">DashBoard</span>
               </a>
 
-              <a href="/" className="nav_link">
+              <a href="/AppointmentForm" className="nav_link">
                 <i
                   className="bi bi-person-check nav_icon"
                   style={{ fontSize: "1.5rem" }}
@@ -58,7 +58,7 @@ function PatientSidebar() {
                 <span className="nav_name">Book Appointment</span>
               </a>
 
-              <a href="/" className="nav_link">
+              <a href="/MyHistory" className="nav_link">
                 <FaHistory style={{ fontSize: "1.5rem" }} />
                 <span className="nav_name">My History</span>
               </a>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
-import axios from "axios";
 import {
   Button,
+  Card,
+  Paper,
   Container,
   FormControl,
   Grid,
@@ -16,13 +17,38 @@ import { makeStyles } from "@material-ui/core/styles";
 import * as Yup from "yup";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { textAlign, width } from "@mui/system";
+import './AppointmentForm.css';
+import { Opacity } from "@mui/icons-material";
+
+const paperStyle = {
+  padding: "20px 10px",
+  width: 900,
+  innerHeight: 100,
+  outerHeight: 500,
+  margin: "20px auto",
+  borderRadius:"50px",
+  marginLeft:"40px",
+  // backgroundColor:"rgba(255,255,255,0.2)",
+  Opacity:"1px"
+};
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
     minWidth: 120,
   },
+  button: {
+    color: 'white',
+    backgroundColor:'green',
+    marginLeft:"350px",
+    fontSize:"18px"
+  },
+  Calendar: {
+    color: 'red',
+    marginTop:"30px",
+    marginLeft:"85px",
+  },
+
 }));
 
 const AppointmentForm = () => {
@@ -40,136 +66,96 @@ const AppointmentForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstname: "",
-      middlename: "",
-      lastname: "",
+      name: "",
       email: "",
-      mobileNo: "",
-      role: "ROLE_DOC",
-      password: "",
-      // date: selectedDate,
-      // time: selectedTime,
+      phone: "",
+      age: "",
+      weight: "",
+      city: "",
+      address: "",
+      disease: ""
+
     },
     validationSchema: Yup.object({
-      firstname: Yup.string().required("Name is required"),
-      middlename: Yup.string().required("Name is required"),
-      lastname: Yup.string().required("Name is required"),
+      name: Yup.string().required("Name is required"),
+      age: Yup.string().required("Age is required"),
+      weight: Yup.string().required("Weight is required"),
+      city: Yup.string().required("City is required"),
+      address: Yup.string().required("Address is required"),
+      disease: Yup.string().required("Disesase is required"),
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
-      role: Yup.string().required("Role is required"),
-      mobileNo: Yup.string()
+      phone: Yup.string()
         .matches(/^[0-9]+$/, "Must be only digits")
         .min(10, "Must be exactly 10 digits")
         .max(10, "Must be exactly 10 digits")
         .required("Phone number is required"),
-      password: Yup.string()
-        .required("Password is required")
-        .min(8, "Password must be at least 8 characters"),
     }),
     onSubmit: (values) => {
       console.log("Form data:", values);
-      // console.log("Selected date:", selectedDate);
-      // console.log("Selected time:", selectedTime);
-
-      // Send the form data to the API endpoint using Axios
-      axios
-        .post("http://localhost:9595/api/v1/user", {
-          firstname: values.firstname,
-          middlename: values.middlename,
-          lastname: values.lastname,
-          email: values.email,
-          mobileNo: values.mobileNo,
-          role: values.role,
-          password: values.password,
-          // date: selectedDate,
-          // time: selectedTime,
-        })
-        .then((response) => {
-          console.log("API response:", response);
-          toast.success("SignUp successfull");
-          // Handle successful response here, if needed
-        })
-        .catch((error) => {
-          console.error("API error:", error);
-          // Handle error response here, if needed
-        });
+      console.log("Selected date:", selectedDate);
+      console.log("Selected time:", selectedTime);
+      // Here you can send the data to your API or do whatever you need with it.
     },
   });
 
   const timeSlots = [
-    { value: "10:00 AM", label: "10:00 AM" },
-    { value: "11:00 AM", label: "11:00 AM" },
-    { value: "12:00 PM", label: "12:00 PM" },
-    { value: "1:00 PM", label: "1:00 PM" },
-    { value: "2:00 PM", label: "2:00 PM" },
-    { value: "3:00 PM", label: "3:00 PM" },
-    { value: "4:00 PM", label: "4:00 PM" },
-    { value: "5:00 PM", label: "5:00 PM" },
-    { value: "6:00 PM", label: "6:00 PM" },
+    { value: "10:00 AM", label: "9:00 AM - 10:00 AM" },
+    { value: "11:00 AM", label: "10:00 AM - 11:00 AM" },
+    { value: "12:00 PM", label: "11:00 AM - 12:00 PM" },
+    { value: "1:00 PM", label: "2:00 PM - 3:00 PM" },
+    { value: "2:00 PM", label: "3:00 PM - 4:00 PM" },
+    { value: "3:00 PM", label: "4:00 PM - 5:00 PM" },
+    { value: "4:00 PM", label: "5:00 PM - 6:00 PM" },
+    { value: "5:00 PM", label: "6:00 PM - 7:00 PM" },
+    { value: "6:00 PM", label: "7:00 PM - 8:00 PM" },
   ];
 
   return (
+<div className="img">
+
+<Paper elevation={10} style={paperStyle} width={500} >
     <Container maxWidth="md">
       <form onSubmit={formik.handleSubmit}>
-        <Grid container spacing={3}>
+        <Grid container spacing={5}>
+          <div >
           <Grid item xs={12}>
-            <Typography variant="h4" className="mb-4">
-              Book a Doctor Appointment
+            <Typography style={{ marginLeft:"170px", color:"black" ,fontFamily:"cursive", fontSize:"50px"}} variant="h4" className="mb-4">
+            Make An <span className="red-text">Appointment</span>
             </Typography>
           </Grid>
+          </div>
           <Grid item xs={12}>
             <TextField
-              id="firstname"
-              name="firstname"
-              label="First Name"
-              variant="standard"
+            style={{fontFamily:"monospace"}}
+              id="name"
+              name="name"
+              label="Full Name:"
               fullWidth
-              value={formik.values.firstname}
+              value={formik.values.name}
               onChange={formik.handleChange}
-              error={
-                formik.touched.firstname && Boolean(formik.errors.firstname)
-              }
-              helperText={formik.touched.firstname && formik.errors.firstname}
+              error={formik.touched.name && Boolean(formik.errors.name)}
+              helperText={formik.touched.name && formik.errors.name}
             />
           </Grid>
-
           <Grid item xs={12}>
             <TextField
-              id="middlename"
-              name="middlename"
-              label="Middle Name"
-              variant="standard"
+              id="Age"
+              name="Age"
+              label="Age:"
               fullWidth
-              value={formik.values.middlename}
+              value={formik.values.Age}
               onChange={formik.handleChange}
-              error={
-                formik.touched.middlename && Boolean(formik.errors.middlename)
-              }
-              helperText={formik.touched.middlename && formik.errors.middlename}
+              error={formik.touched.age && Boolean(formik.errors.age)}
+              helperText={formik.touched.age && formik.errors.age}
             />
           </Grid>
-
-          <Grid item xs={12}>
-            <TextField
-              id="lastname"
-              name="lastname"
-              label="Last Name"
-              variant="standard"
-              fullWidth
-              value={formik.values.lastname}
-              onChange={formik.handleChange}
-              error={formik.touched.lastname && Boolean(formik.errors.lastname)}
-              helperText={formik.touched.lastname && formik.errors.lastname}
-            />
-          </Grid>
-
           <Grid item xs={12}>
             <TextField
               id="email"
               name="email"
               label="Email"
-              variant="standard"
               fullWidth
               value={formik.values.email}
               onChange={formik.handleChange}
@@ -177,67 +163,94 @@ const AppointmentForm = () => {
               helperText={formik.touched.email && formik.errors.email}
             />
           </Grid>
-
           <Grid item xs={12}>
             <TextField
-              id="mobileNo"
-              name="mobileNo"
-              label="mobile No"
-              variant="standard"
+              id="phone"
+              name="phone"
+              label="Phone"
               fullWidth
-              value={formik.values.mobileNo}
+              value={formik.values.phone}
               onChange={formik.handleChange}
-              error={formik.touched.mobileNo && Boolean(formik.errors.mobileNo)}
-              helperText={formik.touched.mobileNo && formik.errors.mobileNo}
+              error={formik.touched.phone && Boolean(formik.errors.phone)}
+              helperText={formik.touched.phone && formik.errors.phone}
             />
           </Grid>
-
-          <input
-            // type={Hidden}
-            id="role"
-            name="role"
-            label="Role"
-            value={formik.values.role}
-            onChange={formik.handleChange}
-            error={formik.touched.role && Boolean(formik.errors.role)}
-            helperText={formik.touched.role && formik.errors.role}
-          ></input>
-
-          <TextField
-            id="password"
-            type="password"
-            name="password"
-            className="form-control mt-1"
-            variant="standard"
-            label="Confirm Password"
-            placeholder="Confirm your password"
-            value={formik.values.password}
-            onChange={formik.handleChange}
-            error={formik.touched.password && Boolean(formik.errors.password)}
-            helperText={formik.touched.password && formik.errors.password}
-          />
-
           <Grid item xs={12}>
-            <Typography variant="h6">Select date and time</Typography>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Calendar
-              onChange={handleDateChange}
-              value={selectedDate}
-              minDate={new Date()}
+            <TextField
+              id="Weight"
+              name="Weight"
+              label="Weight:"
+              fullWidth
+              value={formik.values.Weight}
+              onChange={formik.handleChange}
+              error={formik.touched.weight && Boolean(formik.errors.weight)}
+              helperText={formik.touched.weight && formik.errors.weight}
             />
           </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="City"
+              name="City"
+              label="City:"
+              fullWidth
+              value={formik.values.City}
+              onChange={formik.handleChange}
+              error={formik.touched.city && Boolean(formik.errors.city)}
+              helperText={formik.touched.city && formik.errors.city}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              id="Address"
+              name="Address"
+              label="Address:"
+              fullWidth
+              value={formik.values.Address}
+              onChange={formik.handleChange}
+              error={formik.touched.address && Boolean(formik.errors.address)}
+              helperText={formik.touched.address && formik.errors.address}
+            />
+          </Grid>
+          
+          <FormControl fullWidth >
+            <InputLabel id="demo-simple-select-label">Disease</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              // value={disease}
+              label="Disease"
+              // onChange={OnChange}
+              error={formik.touched.disease && Boolean(formik.errors.disease)}
+              helperText={formik.touched.disease && formik.errors.disease}>
 
-          <Grid item xs={12} md={6}>
-            <FormControl variant="outlined" className={classes.formControl}>
-              <InputLabel id="time-label">Time</InputLabel>
+              <MenuItem value={1}>Headache</MenuItem>
+              <MenuItem value={2}>Stomach Pain</MenuItem>
+              <MenuItem value={3}>Fever</MenuItem>
+              <MenuItem value={4}>Diabetes</MenuItem>
+              <MenuItem value={5}>Blood Pressure</MenuItem>
+              <MenuItem value={6}>Cholera</MenuItem>
+              <MenuItem value={7}>Chickenpox	</MenuItem>
+              <MenuItem value={8}>Eye CheckUp</MenuItem>
+              <MenuItem value={9}>Regular CheckUp</MenuItem>
+            </Select>
+          </FormControl>
+
+          <Grid item xs={12} sm={6}>
+            <FormControl className={classes.formControl} fullWidth>
+              <InputLabel id="time-select-label">Select Time</InputLabel>
               <Select
-                labelId="time-label"
-                id="time"
-                variant="standard"
+                labelId="time-select-label"
+                id="time-select"
                 value={selectedTime}
                 onChange={(e) => handleTimeChange(e.target.value)}
-                label="Time"
+                onBlur={formik.handleBlur}
+                error={
+                  formik.touched.selectedTime &&
+                  Boolean(formik.errors.selectedTime)
+                }
+                helperText={
+                  formik.touched.selectedTime && formik.errors.selectedTime
+                }
               >
                 {timeSlots.map((slot) => (
                   <MenuItem key={slot.value} value={slot.value}>
@@ -247,14 +260,34 @@ const AppointmentForm = () => {
               </Select>
             </FormControl>
           </Grid>
+          <div className={classes.Calendar}>
+          <Grid style={{color:"black"}}  item xs={15} sm={9}>
+            <Calendar
+            className="cal"
+              onChange={handleDateChange}
+              value={selectedDate}
+              minDate={new Date()}
+            />
+          </Grid>
+          </div>
           <Grid item xs={12}>
-            <Button variant="contained" color="primary" type="submit">
-              Book Appointment
+            <div >
+            <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className={classes.button} >
+              Submit
             </Button>
+            </div>
           </Grid>
         </Grid>
       </form>
     </Container>
+    </Paper>
+
+ 
+    </div>
   );
 };
 

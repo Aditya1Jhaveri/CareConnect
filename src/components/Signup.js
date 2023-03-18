@@ -102,6 +102,7 @@ const Signup = () => {
     },
   });
   return (
+    <div className="img">
     <Grid>
       <Paper elevation={10} style={paperStyle} width={200}>
         <Grid align="center">
@@ -250,6 +251,7 @@ const Signup = () => {
         </form>
       </Paper>
     </Grid>
+    </div>
   );
 };
 

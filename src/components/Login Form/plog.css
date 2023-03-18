@@ -96,3 +96,10 @@ label {
 .text-center {
   margin-top: 20px;
 }
+
+.img1{
+  background-image: url(../../images/PatientLog.jpg);
+  background-size: 59%;
+  background-position: fixed;
+  background-repeat: no-repeat;
+}
