@@ -8,7 +8,7 @@ import {
   MDBCardBody,
   MDBCardImage,
 } from "mdb-react-ui-kit";
-import PatientIcon from "../../images/PatientIcon.png";
+import PatientIcon from "../../images/PatientIcon.jpg";
 import PatientSidebar from "./PatSidebar";
 
 export const PprofilePage = () => {

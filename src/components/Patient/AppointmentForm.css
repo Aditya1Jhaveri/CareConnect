@@ -11,12 +11,23 @@
      
       margin-top: "100px";
 }
-.img{
-      background-image: url(../../images/ApptImg.jpg);
+/* .bookappoint{
+      background-image: url(../../images/Bookappointment.jpg);
       background-size:100%;
       background-position: fixed;
       background-repeat: no-repeat;
-}
+} */
 .red-text{
       color: green;
 }
+
+@media only screen and (max-width: 800px) {
+      div {
+        flex-direction: column;
+      }
+      .bookappoint {
+        display: none !important;
+        margin-top: 20px;  
+        
+      }
+    }

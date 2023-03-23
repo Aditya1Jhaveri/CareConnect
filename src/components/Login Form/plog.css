@@ -17,8 +17,8 @@
   padding-bottom: 20px;
   border-radius: 8px;
   background-color: white;
-  margin-left: 150px;
-  margin-right: 150px;
+  /* margin-left: 150px;
+  margin-right: 150px; */
   margin-top: 50px;
 }
 
@@ -97,9 +97,15 @@ label {
   margin-top: 20px;
 }
 
-.img1{
-  background-image: url(../../images/PatientLog.jpg);
-  background-size: 59%;
-  background-position: fixed;
-  background-repeat: no-repeat;
+
+
+@media only screen and (max-width: 800px) {
+  div {
+    flex-direction: column;
+  }
+  .patientimg {
+    display: none !important;
+    margin-top: 20px;  
+    
+  }
 }

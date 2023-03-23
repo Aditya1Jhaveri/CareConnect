@@ -1,6 +1,6 @@
-import LinearStepper from './LinearStepper'
-import { CssBaseline, Container, Paper, Box } from '@material-ui/core'
-import './doctorform.css'
+import LinearStepper from "./LinearStepper";
+import { CssBaseline, Container, Paper, Box } from "@material-ui/core";
+import "./doctorform.css";
 
 function DoctorForm() {
   return (
@@ -12,7 +12,7 @@ function DoctorForm() {
         </Paper>
       </Container>
     </>
-  )
+  );
 }
 
-export default DoctorForm
+export default DoctorForm;

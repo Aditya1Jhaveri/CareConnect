@@ -21,8 +21,8 @@ export default function OverviewPage() {
         <Route path="/DoctorLogin" element={<DoctorLogin />} />
         <Route path="/PatientLogin" element={<PatientLogin />} />
         <Route path="/AdminLogin" element={<AdminLogin />} />
-        <Route path="/DoctorForm" element={<DoctorForm />} />
         <Route path="/Signup" element={<Signup />} />
+        <Route path="/DoctorForm" element={<DoctorForm />} />
       </Routes>
     </>
   );

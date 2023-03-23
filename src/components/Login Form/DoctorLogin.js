@@ -4,16 +4,17 @@ import React, { useState } from "react";
 import "./dLog.css";
 import Avatar from "@material-ui/core/Avatar";
 import DoctorIcon from "../../images/DoctorIcon.png";
-import PatientIcon from "../../images/PatientIcon.png";
-import AdminIcon from "../../images/AdminIcon.jpeg";
+import PatientIcon from "../../images/PatientIcon.jpg";
+import AdminIcon from "../../images/AdminIcon.jpg";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import doctorimg from "../../images/Doctorimg.jpg";
 
 export const DoctorLogin = () => {
   const navigate = useNavigate();
@@ -65,14 +66,13 @@ export const DoctorLogin = () => {
         })
         .then((response) => {
           console.log("API response:", response);
-          toast.success("SignUp successfull");
+          toast.success("Login successful!");
           navigate("/DoctorForm");
-          toast.success("SignUp successfull");
           // Handle successful response here, if needed
         })
         .catch((error) => {
           console.error("API error:", error);
-          // toast.error("Please Enter Valid Details");
+          toast.error("Invalid email or password");
           // Handle error response here, if needed
         });
     },
@@ -80,170 +80,189 @@ export const DoctorLogin = () => {
 
   if (authMode === "signin") {
     return (
-      <div className="img2">
-      <div className="Auth-form-container">
-        <form className="Auth-form" onSubmit={formik.handleSubmit}>
-          <div className="Auth-form-content">
-            <div className="container">
-              <div className="inner-container">
-                <button
-                  type="button"
-                  className="btn btn-light btn-circle btn-xl"
-                >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src={DoctorIcon}
-                    style={{
-                      width: 70,
-                      height: 70,
-                      border: "2px solid  black",
-                      // boxShadow: '2px 2px 20px grey',
-                    }}
-                  />
-                  <p
-                    style={{
-                      marginTop: 8,
-                      marginLeft: 2,
-                      fontWeight: "bold",
-                      fontSize: 18,
-                    }}
-                  >
-                    DOCTOR
-                  </p>
-                </button>
+      <>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <img
+            className="doctorimg"
+            src={doctorimg}
+            alt=""
+            style={{
+              flexWrap: "wrap",
+              borderRadius: "20%",
+              display: "block",
+              maxWidth: "40%",
+              marginLeft: "40px",
+            }}
+          />
+          <div className="Auth-form-container">
+            <form className="Auth-form" onSubmit={formik.handleSubmit}>
+              <ToastContainer />
+              <div className="Auth-form-content">
+                <div className="container">
+                  <div className="inner-container">
+                    <button
+                      type="button"
+                      className="btn btn-light btn-circle btn-xl"
+                    >
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={DoctorIcon}
+                        style={{
+                          width: 70,
+                          height: 70,
+                          border: "2px solid  black",
+                          // boxShadow: '2px 2px 20px grey',
+                        }}
+                      />
+                      <p
+                        style={{
+                          marginTop: 8,
+                          marginLeft: 2,
+                          fontWeight: "bold",
+                          fontSize: 18,
+                        }}
+                      >
+                        DOCTOR
+                      </p>
+                    </button>
 
-                <button
-                  type="button"
-                  className="btn btn-light btn-circle btn-xl"
-                  onClick={patLogin}
-                >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src={PatientIcon}
-                    style={{
-                      width: 70,
-                      height: 70,
-                      border: "2px solid  black",
-                      // boxShadow: '2px 2px 20px grey',
-                    }}
-                  />
-                  <p
-                    style={{
-                      marginTop: 8,
-                      marginLeft: 2,
-                      fontWeight: "bold",
-                      fontSize: 18,
-                    }}
-                  >
-                    PATIENT
-                  </p>
-                </button>
+                    <button
+                      type="button"
+                      className="btn btn-light btn-circle btn-xl"
+                      onClick={patLogin}
+                    >
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={PatientIcon}
+                        style={{
+                          width: 70,
+                          height: 70,
+                          border: "2px solid  black",
+                          // boxShadow: '2px 2px 20px grey',
+                        }}
+                      />
+                      <p
+                        style={{
+                          marginTop: 8,
+                          marginLeft: 2,
+                          fontWeight: "bold",
+                          fontSize: 18,
+                        }}
+                      >
+                        PATIENT
+                      </p>
+                    </button>
 
-                <button
-                  type="button"
-                  className="btn btn-light btn-circle btn-xl"
-                  onClick={adLogin}
-                >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src={AdminIcon}
-                    style={{
-                      width: 70,
-                      height: 70,
-                      border: "2px solid  black",
-                      // boxShadow: '2px 2px 20px grey',
+                    <button
+                      type="button"
+                      className="btn btn-light btn-circle btn-xl"
+                      onClick={adLogin}
+                    >
+                      <Avatar
+                        alt="Remy Sharp"
+                        src={AdminIcon}
+                        style={{
+                          width: 70,
+                          height: 70,
+                          border: "2px solid  black",
+                          // boxShadow: '2px 2px 20px grey',
+                        }}
+                      />
+                      <p
+                        style={{
+                          marginTop: 8,
+                          marginLeft: 2,
+                          fontWeight: "bold",
+                          fontSize: 18,
+                        }}
+                      >
+                        ADMIN
+                      </p>
+                    </button>
+                  </div>
+                </div>
+
+                <h3 className="Auth-form-title">Doctor Sign In</h3>
+
+                <div className="form-group mt-3">
+                  <TextField
+                    type="email"
+                    id="username"
+                    name="username"
+                    label="Email"
+                    variant="standard"
+                    fullWidth
+                    value={formik.values.username}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.username && Boolean(formik.errors.username)
+                    }
+                    helperText={
+                      formik.touched.username && formik.errors.username
+                    }
+                  />
+                </div>
+
+                <input
+                  style={{ display: "none" }}
+                  disabled
+                  name="role"
+                  value={formik.values.role}
+                  onChange={formik.handleChange}
+                  error={formik.touched.role && Boolean(formik.errors.role)}
+                  helperText={formik.touched.role && formik.errors.role}
+                ></input>
+
+                <div className="form-group mt-3">
+                  <TextField
+                    type={eye ? "text" : "password"}
+                    name="password"
+                    className="form-control mt-1"
+                    variant="standard"
+                    label="Password"
+                    placeholder="Enter your password"
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton onClick={handleEye}>
+                            {eye ? <VisibilityIcon /> : <VisibilityOffIcon />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
                     }}
                   />
-                  <p
-                    style={{
-                      marginTop: 8,
-                      marginLeft: 2,
-                      fontWeight: "bold",
-                      fontSize: 18,
-                    }}
-                  >
-                    ADMIN
-                  </p>
-                </button>
+                </div>
+
+                <div className="forpassword">
+                  <span className="link-danger" onClick={changeAuthMode}>
+                    Forgot password?
+                  </span>
+                </div>
+
+                <div className="d-grid gap-2 mt-3">
+                  <button type="submit" className="btn btn-primary">
+                    Submit
+                  </button>
+                </div>
+
+                <div className="text-center">
+                  Not registered yet?{" "}
+                  <span className="link-primary" onClick={changeAuthMode}>
+                    Sign Up
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <h3 className="Auth-form-title">Doctor Sign In</h3>
-
-            <div className="form-group mt-3">
-              <TextField
-                type="email"
-                id="username"
-                name="username"
-                label="Email"
-                variant="standard"
-                fullWidth
-                value={formik.values.username}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.username && Boolean(formik.errors.username)
-                }
-                helperText={formik.touched.username && formik.errors.username}
-              />
-            </div>
-
-            <input
-              style={{ display: "none" }}
-              disabled
-              name="role"
-              value={formik.values.role}
-              onChange={formik.handleChange}
-              error={formik.touched.role && Boolean(formik.errors.role)}
-              helperText={formik.touched.role && formik.errors.role}
-            ></input>
-
-            <div className="form-group mt-3">
-              <TextField
-                type={eye ? "text" : "password"}
-                name="password"
-                className="form-control mt-1"
-                variant="standard"
-                label="Password"
-                placeholder="Enter your password"
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton onClick={handleEye}>
-                        {eye ? <VisibilityIcon /> : <VisibilityOffIcon />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </div>
-
-            <div className="forpassword">
-              <span className="link-danger" onClick={changeAuthMode}>
-                Forgot password?
-              </span>
-            </div>
-
-            <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
-
-            <div className="text-center">
-              Not registered yet?{" "}
-              <span className="link-primary" onClick={changeAuthMode}>
-                Sign Up
-              </span>
-            </div>
+            </form>
           </div>
-        </form>
-      </div>
-      </div>
+        </div>
+      </>
     );
   }
 };

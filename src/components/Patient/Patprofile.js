@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
 import { Avatar, makeStyles } from "@material-ui/core";
 // import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import PatientIcon from "../../images/PatientIcon.png";
+import PatientIcon from "../../images/PatientIcon.jpg";
 import { useNavigate } from "react-router-dom";
 
 const user = {
