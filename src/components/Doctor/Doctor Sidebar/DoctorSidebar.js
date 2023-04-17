@@ -47,7 +47,7 @@ function Sidebar() {
                 <BiX className="close-btn" onClick={handleClose} />
               </div>
             )}
-            <a href="//" className="nav_logo">
+            <div className="nav_logo">
               <img
                 src={CareConnectLogo}
                 alt=""
@@ -55,7 +55,7 @@ function Sidebar() {
                 width={30}
               />
               <span className="nav_logo-name">CareConnect</span>
-            </a>
+            </div>
 
             <div className="nav_list">
               <a href="/DoctorDashboard" className="nav_link">
