@@ -2,39 +2,52 @@ import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { RxDashboard } from "react-icons/rx";
 import { FaHistory } from "react-icons/fa";
-
+import { BiX } from "react-icons/bi";
+import { BiCalendarCheck } from "react-icons/bi";
 import "./DSidebar.css";
 import CareConnectLogo from "../../../images/CareConnectLogo.jpg";
-
-import Clickout from "../Clickout";
 import Docprofile from "./Docprofile";
 
-function DoctorSidebar() {
+function Sidebar() {
   const [showNav, setShowNav] = useState(false);
 
-  const handelClose = () => {
+  const handleMouseEnter = () => {
+    setShowNav(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowNav(false);
+  };
+
+  const handleClose = () => {
     setShowNav(false);
   };
 
   return (
-    <div className={`body-area${showNav ? " body-pd" : ""}`}>
-      <header className={`header${showNav ? " body-pd" : ""}`}>
+    <>
+      <header className="header">
         <div className="header_toggle">
-          <Clickout onClickOutside={handelClose}>
-            <i
-              className={`bi ${showNav ? "bi-x" : "bi-list"}`}
-              onClick={() => setShowNav(!showNav)}
-            />
-          </Clickout>
+          <i
+            className={`bi ${showNav ? "" : "bi-list"}`}
+            onClick={() => setShowNav(!showNav)}
+          />
         </div>
         <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>CareConnect</h2>
-
         <Docprofile />
       </header>
-      <div className={`l-navbar${showNav ? " show" : ""}`}>
+      <div
+        className={`l-navbar${showNav ? " show" : ""}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <nav className="nav">
           <div>
-            <a href="/" className="nav_logo">
+            {showNav && (
+              <div className="header_toggle">
+                <BiX className="close-btn" onClick={handleClose} />
+              </div>
+            )}
+            <a href="//" className="nav_logo">
               <img
                 src={CareConnectLogo}
                 alt=""
@@ -51,19 +64,22 @@ function DoctorSidebar() {
               </a>
 
               <a href="/PendingAppointment" className="nav_link">
-                <i
-                  className="bi bi-person-check nav_icon"
-                  style={{ fontSize: "1.5rem" }}
-                />
-                <span className="nav_name">Pending Appointment</span>
+                <BiCalendarCheck style={{ fontSize: "1.5rem" }} />
+                <span className="nav_name">
+                  Pending <br />
+                  Appointment
+                </span>
               </a>
 
-              <a href="/" className="nav_link">
+              <a href="/AppointmentForm" className="nav_link">
                 <i
                   className="bi bi-person-check nav_icon"
                   style={{ fontSize: "1.5rem" }}
                 />
-                <span className="nav_name">Add Appointment</span>
+                <span className="nav_name">
+                  Add <br />
+                  Appointment
+                </span>
               </a>
 
               <a href="/" className="nav_link">
@@ -81,8 +97,8 @@ function DoctorSidebar() {
           </a>
         </nav>
       </div>
-    </div>
+    </>
   );
 }
 
-export default DoctorSidebar;
+export default Sidebar;

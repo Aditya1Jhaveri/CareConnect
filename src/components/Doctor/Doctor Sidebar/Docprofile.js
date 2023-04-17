@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 function Docprofile() {
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const classes = useStyles();
@@ -29,13 +30,12 @@ function Docprofile() {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const navigate = useNavigate();
   const Profile = () => {
     navigate("/DocAccount");
+  };
+
+  const handleClose = () => {
+    navigate("/DoctorLogin");
   };
 
   return (

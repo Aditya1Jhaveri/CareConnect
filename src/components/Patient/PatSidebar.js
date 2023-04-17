@@ -7,25 +7,18 @@ import "./PatSidebar.css";
 import CareConnectLogo from "../../images/CareConnectLogo.jpg";
 
 import Patprofile from "./Patprofile";
-import Clickout from "../Doctor/Clickout";
 
 function PatientSidebar() {
   const [showNav, setShowNav] = useState(false);
-
-  const handelClose = () => {
-    setShowNav(false);
-  };
 
   return (
     <div className={`body-area${showNav ? " body-pd" : ""}`}>
       <header className={`header${showNav ? " body-pd" : ""}`}>
         <div className="header_toggle">
-          <Clickout onClickOutside={handelClose}>
-            <i
-              className={`bi ${showNav ? "bi-x" : "bi-list"}`}
-              onClick={() => setShowNav(!showNav)}
-            />
-          </Clickout>
+          <i
+            className={`bi ${showNav ? "bi-x" : "bi-list"}`}
+            onClick={() => setShowNav(!showNav)}
+          />
         </div>
         <h2 style={{ paddingTop: 10, paddingLeft: 10 }}>CareConnect</h2>
 

@@ -6,7 +6,6 @@ import DoctorDashboard from "./components/Doctor/DoctorDashboard";
 import DprofilePage from "./components/Doctor/Doctor Sidebar/DocAccount";
 import PprofilePage from "./components/Patient/PatAccount";
 import Pendingappointment from "./components/Doctor/PendingAppointment";
-import AppointmentForm from "./components/Patient/AppointmentForm ";
 import MyHistory from "./components/Patient/Patient Form/MyHistory";
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
         <Route path="/DocAccount" element={<DprofilePage />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/PatAccount" element={<PprofilePage />} />
-        <Route path="/AppointmentForm" element={<AppointmentForm />} />
         <Route path="/MyHistory" element={<MyHistory />} />
       </Routes>
     </>

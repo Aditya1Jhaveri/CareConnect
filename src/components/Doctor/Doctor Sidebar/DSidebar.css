@@ -36,9 +36,14 @@
 }
 
 .header_toggle {
-  color: var(--first-color);
+  color: var(--first-color-light);
   font-size: 2rem;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.header_toggle:hover {
+  color: var(--first-color-light);
 }
 
 .header_img {
@@ -165,7 +170,7 @@
   }
 
   .show {
-    width: calc(var(--nav-width) + 156px);
+    width: calc(var(--nav-width) + 126px);
   }
 
   .body-pd {
