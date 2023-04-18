@@ -42,18 +42,7 @@ function NavBar() {
             {click ? <FaTimes /> : <FaBars />}
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
-            <li className="nav-item">
-              <div
-                className={({ isActive }) =>
-                  "nav-links" + (isActive ? " activated" : "")
-                }
-                onClick={closeMobileMenu}
-              >
-                <Button id="signbutton" onClick={register}>
-                  register
-                </Button>
-              </div>
-            </li>
+
 
             <li className="nav-item">
               <NavLink
@@ -100,6 +89,18 @@ function NavBar() {
               >
                 <Button id="signbutton" onClick={login}>
                   Sign In
+                </Button>
+              </div>
+            </li>
+            <li className="nav-item">
+              <div
+                className={({ isActive }) =>
+                  "nav-links" + (isActive ? " activated" : "")
+                }
+                onClick={closeMobileMenu}
+              >
+                <Button id="signbutton" onClick={register} >
+                  Sign Up
                 </Button>
               </div>
             </li>

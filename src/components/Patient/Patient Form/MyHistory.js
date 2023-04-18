@@ -53,7 +53,7 @@ const MyHistory = () => {
 
   return (
     <div>
-      <PatientSidebar/>
+      <PatientSidebar />
       <div className="dashboard">
         <div className="dashboardTable">
           {/* <div className="dashboardHeading">
@@ -91,18 +91,20 @@ const MyHistory = () => {
           </div> */}
           <div className="dashboardTableDetails">
             <div className="table-responsive">
-              <p>Pending Appointments</p>
+              <p style={{ textAlign: "center", fontSize: 20}}>
+                Pending Appointments
+              </p>
               <TableContainer component={Paper}>
                 <Table>
                   <thead>
-                    <tr>
-                      <td align="left">Sr. No</td>
-                      <td align="center">Date</td>
-                      <td align="center">Time</td>
-                      <td align="left">Name</td>
-                      <td align="center">Contact</td>
-                      <td align="center">Prescription</td>
-                      <td align="center">Action</td>
+                    <tr  style={{fontSize: 15}}>
+                      <td align="left"><b>SR. NO</b></td>
+                      <td align="center"><b>DATE</b></td>
+                      <td align="center"><b>TIME</b></td>
+                      <td align="left"><b>NAME</b></td>
+                      <td align="center"><b>CONTACT</b></td>
+                      <td align="center"><b>PRECRIPTION</b></td>
+                      {/* <td align="center">Action</td> */}
                     </tr>
                   </thead>
                   <tbody>
@@ -126,7 +128,7 @@ const MyHistory = () => {
                         <td align="center" data-th="Prescription">
                           Not Added
                         </td>
-                        <td
+                        {/* <td
                           data-th="Action"
                           onMouseOver={() => setKey(appoint.key)}
                           align="center"
@@ -144,7 +146,7 @@ const MyHistory = () => {
                             </MenuItem>
                             <MenuItem value={"approved"}>Approved</MenuItem>
                           </Select>
-                        </td>
+                        </td> */}
                       </tr>
                     ))}
                   </tbody>

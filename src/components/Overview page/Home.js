@@ -13,6 +13,8 @@ import Record from "../../images/patient record.png";
 import { Button } from "@material-ui/core";
 
 import ellips1 from "../../images/Ellipse 1.png";
+import ellips2 from "../../images/Ellipse 2.png";
+import ellips3 from "../../images/Ellipse 3.png";
 
 import Footer from "./Footer/Footer";
 
@@ -156,11 +158,9 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Perspiciatis, corporis molestiae maiores nihil dicta
-                    expedita ipsum, reiciendis natus eligendi libero sit
-                    quisquam quod ut nostrum voluptate accusamus atque dolorem
-                    maxime.
+                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
+                    I liked how user-friendly the app is.
+                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
@@ -180,17 +180,15 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Perspiciatis, corporis molestiae maiores nihil dicta
-                    expedita ipsum, reiciendis natus eligendi libero sit
-                    quisquam quod ut nostrum voluptate accusamus atque dolorem
-                    maxime.
+                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
+                    I liked how user-friendly the app is.
+                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
-                  <img src={ellips1} alt="" />
+                  <img src={ellips2} alt="" />
                   <div className="patientinfo">
-                    <p>Robiul Islam</p>
+                    <p>Robina Niha</p>
                     <p>Barisal</p>
                   </div>
                 </Card.Header>
@@ -204,17 +202,15 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Perspiciatis, corporis molestiae maiores nihil dicta
-                    expedita ipsum, reiciendis natus eligendi libero sit
-                    quisquam quod ut nostrum voluptate accusamus atque dolorem
-                    maxime.
+                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
+                    I liked how user-friendly the app is.
+                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
-                  <img src={ellips1} alt="" />
+                  <img src={ellips3   } alt="" />
                   <div className="patientinfo">
-                    <p>Robiul Islam</p>
+                    <p>Tofu Lisa</p>
                     <p>Barisal</p>
                   </div>
                 </Card.Header>

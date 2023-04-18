@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { RxDashboard } from "react-icons/rx";
 import { FaHistory } from "react-icons/fa";
-
+import { BiX } from "react-icons/bi";
 import "./PatSidebar.css";
 import CareConnectLogo from "../../images/CareConnectLogo.jpg";
 
@@ -11,12 +11,24 @@ import Patprofile from "./Patprofile";
 function PatientSidebar() {
   const [showNav, setShowNav] = useState(false);
 
+  const handleMouseEnter = () => {
+    setShowNav(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowNav(false);
+  };
+
+  const handleClose = () => {
+    setShowNav(false);
+  };
+
   return (
     <div className={`body-area${showNav ? " body-pd" : ""}`}>
       <header className={`header${showNav ? " body-pd" : ""}`}>
         <div className="header_toggle">
           <i
-            className={`bi ${showNav ? "bi-x" : "bi-list"}`}
+            className={`bi ${showNav ? "" : "bi-list"}`}
             onClick={() => setShowNav(!showNav)}
           />
         </div>
@@ -24,10 +36,17 @@ function PatientSidebar() {
 
         <Patprofile />
       </header>
-      <div className={`l-navbar${showNav ? " show" : ""}`}>
+      <div className={`l-navbar${showNav ? " show" : ""}`}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}>
         <nav className="nav">
           <div>
             <a href="/" className="nav_logo">
+            {showNav && (
+              <div className="header_toggle">
+                <BiX className="close-btn" onClick={handleClose} />
+              </div>
+            )}
               <img
                 src={CareConnectLogo}
                 alt=""
