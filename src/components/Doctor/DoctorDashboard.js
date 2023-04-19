@@ -3,9 +3,8 @@ import "./Dashboard.css";
 // import { useEffect } from 'react'
 import { useState } from "react";
 import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
-
+import Button from "@mui/material/Button";
 import { User } from "./User";
-
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
@@ -56,8 +55,8 @@ const DoctorDashboard = () => {
     <div>
       <DoctorSidebar />
       <div className="dashboard">
-        <div className="dashboardTable">
-          <div className="dashboardHeading">
+        <div className="docdashboardTable">
+          <div className="docdashboardHeading">
             <div style={{ backgroundColor: "tomato" }}>
               {/* <h1>{pendingAppointment.length}</h1> */}
               <p>
@@ -91,20 +90,20 @@ const DoctorDashboard = () => {
               </p>
             </div>
           </div>
-          <div className="dashboardTableDetails">
-            <div className="table-responsive">
+          <div className="docdashboardTableDetails">
+            <div className="table-responsive" style={{ margin: 20 }}>
               <p>Recent Appointments</p>
               <TableContainer component={Paper}>
                 <Table>
                   <thead>
                     <tr>
-                      <td align="left">Sr. No</td>
-                      <td align="center">Date</td>
-                      <td align="center">Time</td>
-                      <td align="left">Name</td>
-                      <td align="center">Contact</td>
-                      <td align="center">Prescription</td>
-                      <td align="center">Action</td>
+                      <th align="left">Sr. No</th>
+                      <th align="center">Date</th>
+                      <th align="center">Time</th>
+                      <th align="left">Name</th>
+                      <th align="center">Contact</th>
+                      <th align="center">Prescription</th>
+                      <th align="center">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -133,18 +132,13 @@ const DoctorDashboard = () => {
                           onMouseOver={() => setKey(appoint.key)}
                           align="center"
                         >
-                          <Select
-                            style={{ color: "white" }}
-                            className="actionSelect"
-                            value={appoint.action1}
-                            displayEmpty
-                            inputProps={{ "aria-label": "Without label" }}
-                            // onChange={handleChange}
+                          <Button
+                            variant="contained"
+                            color="success"
+                            onClick={() => {}}
                           >
-                            <MenuItem>
-                              <em>Approved</em>
-                            </MenuItem>
-                          </Select>
+                            Approved
+                          </Button>
                         </td>
                       </tr>
                     ))}

@@ -1,16 +1,16 @@
-.dashboard {
+.adashboard {
     background-color: #e1f1f3;
-    padding-top: 50px;
-    margin-top: 60px;
+    padding-top: 40px;
+    margin-top: 40px;
   }
   
-  .dashboardHeading {
+  .addashboardHeading {
     display: flex;
     margin-left: 20px;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .dashboardHeading > div {
+  .addashboardHeading > div {
     color: white;
     display: flex;
     padding: 20px;
@@ -21,39 +21,39 @@
     justify-content: center;
     align-items: center;
   }
-  .dashboardHeading > div > h1 {
+  .addashboardHeading > div > h1 {
     font-size: 50px;
   }
   .dashboardHeading > div > p {
     padding-top: 10px;
     padding-left: 20px;
   }
-  .dashboardTableDetails {
+  .addashboardTableDetails {
     background-color: white;
-    margin-left: 100px;
+    margin-left: 50px;
     border-radius: 5px;
     margin-right: 50px;
     text-align: justify;
   }
-  .dashboardTableDetails p {
+  .addashboardTableDetails p {
     padding: 20px;
     font-weight: 900;
     background: linear-gradient(#19d3ae, #0fcfec);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  .dashboardTableDetails .actionSelect {
+  .addashboardTableDetails .actionSelect {
     background-image: linear-gradient(#19d3ae, #0fcfec);
     padding: 0px 5px;
     border-radius: 4px;
   }
   
   @media only screen and (max-width: 800px) {
-    .dashboardHeading {
+    .addashboardHeading {
       margin-right: 0px;
       display: flex;
     }
-    .dashboardTableDetails {
+    .addashboardTableDetails {
       margin-right: 30px;
       margin-left: 30px;
     }
@@ -98,3 +98,12 @@
     }
   }
   
+  @media screen and (min-width: 800px) {
+    .table tbody tr td {
+      border: 1px solid lightgray;
+    }
+  
+    .table th {
+      border: 1px solid lightgray;
+    }
+  }

@@ -56,8 +56,7 @@ const Pendingappointment = () => {
     <div>
       <DoctorSidebar />
       <div className="dashboard">
-        <div className="dashboardTable">
-          {/* <div className="dashboardHeading">
+        {/* <div className="dashboardHeading">
             <div style={{ backgroundColor: "tomato" }}>
               <p>
                 Pending
@@ -90,68 +89,67 @@ const Pendingappointment = () => {
               </p>
             </div>
           </div> */}
-          <div className="dashboardTableDetails">
-            <div className="table-responsive">
-              <p>Pending Appointments</p>
-              <TableContainer component={Paper}>
-                <Table>
-                  <thead>
-                    <tr>
-                      <td align="left">Sr. No</td>
-                      <td align="center">Date</td>
-                      <td align="center">Time</td>
-                      <td align="left">Name</td>
-                      <td align="center">Contact</td>
-                      <td align="center">Prescription</td>
-                      <td align="center">Action</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {User.map((appoint) => (
-                      <tr key={appoint._id}>
-                        <td align="left" data-th="Sr. No">
-                          {User.indexOf(appoint) + 1}
-                        </td>
-                        <td align="center" data-th="Date">
-                          {appoint.date}
-                        </td>
-                        <td align="center" data-th="Time">
-                          {appoint.time}
-                        </td>
-                        <td align="left" data-th="Name">
-                          {appoint.name}
-                        </td>
-                        <td align="center" data-th="Contact">
-                          {appoint.phoneNumber}
-                        </td>
-                        <td align="center" data-th="Prescription">
-                          Not Added
-                        </td>
-                        <td
-                          data-th="Action"
-                          onMouseOver={() => setKey(appoint.key)}
-                          align="center"
+        <div className="dashboardTableDetails">
+          <div className="table-responsive" style={{ margin: 20 }}>
+            <p>Pending Appointments</p>
+            <TableContainer component={Paper}>
+              <Table>
+                <thead>
+                  <tr>
+                    <th align="left">Sr. No</th>
+                    <th align="center">Date</th>
+                    <th align="center">Time</th>
+                    <th align="left">Name</th>
+                    <th align="center">Contact</th>
+                    <th align="center">Prescription</th>
+                    <th align="center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {User.map((appoint) => (
+                    <tr key={appoint._id}>
+                      <td align="left" data-th="Sr. No">
+                        {User.indexOf(appoint) + 1}
+                      </td>
+                      <td align="center" data-th="Date">
+                        {appoint.date}
+                      </td>
+                      <td align="center" data-th="Time">
+                        {appoint.time}
+                      </td>
+                      <td align="left" data-th="Name">
+                        {appoint.name}
+                      </td>
+                      <td align="center" data-th="Contact">
+                        {appoint.phoneNumber}
+                      </td>
+                      <td align="center" data-th="Prescription">
+                        Not Added
+                      </td>
+                      <td
+                        data-th="Action"
+                        onMouseOver={() => setKey(appoint.key)}
+                        align="center"
+                      >
+                        <Select
+                          style={{ color: "white" }}
+                          className="actionSelect"
+                          value={appoint.action1}
+                          displayEmpty
+                          inputProps={{ "aria-label": "Without label" }}
+                          // onChange={handleChange}
                         >
-                          <Select
-                            style={{ color: "white" }}
-                            className="actionSelect"
-                            value={appoint.action1}
-                            displayEmpty
-                            inputProps={{ "aria-label": "Without label" }}
-                            // onChange={handleChange}
-                          >
-                            <MenuItem>
-                              <em>Pending</em>
-                            </MenuItem>
-                            <MenuItem value={"approved"}>Approved</MenuItem>
-                          </Select>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </Table>
-              </TableContainer>
-            </div>
+                          <MenuItem>
+                            <em>Pending</em>
+                          </MenuItem>
+                          <MenuItem value={"approved"}>Approved</MenuItem>
+                        </Select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </TableContainer>
           </div>
         </div>
       </div>

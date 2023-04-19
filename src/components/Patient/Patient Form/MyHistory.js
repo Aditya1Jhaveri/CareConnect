@@ -91,19 +91,31 @@ const MyHistory = () => {
           </div> */}
           <div className="dashboardTableDetails">
             <div className="table-responsive">
-              <p style={{ textAlign: "center", fontSize: 20}}>
+              <p style={{ textAlign: "center", fontSize: 20 }}>
                 Pending Appointments
               </p>
               <TableContainer component={Paper}>
                 <Table>
                   <thead>
-                    <tr  style={{fontSize: 15}}>
-                      <td align="left"><b>SR. NO</b></td>
-                      <td align="center"><b>DATE</b></td>
-                      <td align="center"><b>TIME</b></td>
-                      <td align="left"><b>NAME</b></td>
-                      <td align="center"><b>CONTACT</b></td>
-                      <td align="center"><b>PRECRIPTION</b></td>
+                    <tr style={{ fontSize: 15 }}>
+                      <td align="left">
+                        <b>SR. NO</b>
+                      </td>
+                      <td align="center">
+                        <b>DATE</b>
+                      </td>
+                      <td align="center">
+                        <b>TIME</b>
+                      </td>
+                      <td align="left">
+                        <b>NAME</b>
+                      </td>
+                      <td align="center">
+                        <b>CONTACT</b>
+                      </td>
+                      <td align="center">
+                        <b>PRECRIPTION</b>
+                      </td>
                       {/* <td align="center">Action</td> */}
                     </tr>
                   </thead>

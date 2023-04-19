@@ -72,7 +72,7 @@ export const AdminLogin = () => {
         .then((response) => {
           console.log("API response:", response);
           toast.success("Login successful!");
-          navigate("/DoctorForm");
+          navigate("/Admindash");
           // Handle successful response here, if needed
         })
         .catch((error) => {

@@ -18,6 +18,7 @@ import {
   Select,
   MenuItem,
   InputLabel,
+  InputAdornment,
 } from "@material-ui/core";
 import axios from "axios";
 import * as Yup from "yup";
@@ -45,9 +46,9 @@ const LinearStepper = () => {
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      middleName: "",
+      firstname: "",
+      lastname: "",
+      middlename: "",
       email: "",
       mobileNo: "",
       street: "",
@@ -71,9 +72,9 @@ const LinearStepper = () => {
     },
 
     validationSchema: Yup.object({
-      firstName: Yup.string().required("First name is required"),
-      middleName: Yup.string().required("Middle name is required"),
-      lastName: Yup.string().required("Last name is required"),
+      firstname: Yup.string().required("First name is required"),
+      middlename: Yup.string().required("Middle name is required"),
+      lastname: Yup.string().required("Last name is required"),
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
@@ -103,9 +104,9 @@ const LinearStepper = () => {
       setSubmitting(true);
       axios
         .post("http://localhost:9595/api/v1/clinic", {
-          firstName: values.firstName,
-          middleName: values.middleName,
-          lastName: values.lastName,
+          firstname: values.firstname,
+          middlename: values.middlename,
+          lastname: values.lastname,
           email: values.email,
           gender: values.gender,
           age: values.age,
@@ -130,7 +131,7 @@ const LinearStepper = () => {
         .then((response) => {
           console.log("API response:", response);
           toast.success("Login successful!");
-          navigate("/PatientLogin");
+          navigate("/DoctorDashboard");
           // Handle successful response here, if needed
         })
         .catch((error) => {
@@ -164,45 +165,45 @@ const LinearStepper = () => {
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={4}>
                   <Field
-                    name="firstName"
+                    name="firstname"
                     as={TextField}
                     label="First Name"
-                    value={formik.values.firstName}
+                    value={formik.values.firstname}
                     onChange={formik.handleChange}
                     fullWidth
-                    error={formik.touched.firstName && formik.errors.firstName}
+                    error={formik.touched.firstname && formik.errors.firstname}
                     helperText={
-                      formik.touched.firstName && formik.errors.firstName
+                      formik.touched.firstname && formik.errors.firstname
                     }
                   />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Field
-                    name="middleName"
+                    name="middlename"
                     as={TextField}
                     label="Middle Name"
-                    value={formik.values.middleName}
+                    value={formik.values.middlename}
                     onChange={formik.handleChange}
                     fullWidth
                     error={
-                      formik.touched.middleName && formik.errors.middleName
+                      formik.touched.middlename && formik.errors.middlename
                     }
                     helperText={
-                      formik.touched.middleName && formik.errors.middleName
+                      formik.touched.middlename && formik.errors.middlename
                     }
                   />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                   <Field
-                    name="lastName"
+                    name="lastname"
                     as={TextField}
                     label="Last Name"
-                    value={formik.values.lastName}
+                    value={formik.values.lastname}
                     onChange={formik.handleChange}
                     fullWidth
-                    error={formik.touched.lastName && formik.errors.lastName}
+                    error={formik.touched.lastname && formik.errors.lastname}
                     helperText={
-                      formik.touched.lastName && formik.errors.lastName
+                      formik.touched.lastname && formik.errors.lastname
                     }
                   />
                 </Grid>
@@ -453,6 +454,11 @@ const LinearStepper = () => {
                     helperText={
                       formik.touched.experience && formik.errors.experience
                     }
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">Kg</InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -532,6 +538,11 @@ const LinearStepper = () => {
                     fullWidth
                     error={formik.touched.fees && formik.errors.fees}
                     helperText={formik.touched.fees && formik.errors.fees}
+                    InputProps={{
+                      startAdornment: (
+                        <InputAdornment position="start">₹</InputAdornment>
+                      ),
+                    }}
                   />
                 </Grid>
 
