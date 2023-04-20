@@ -41,7 +41,7 @@ const Home = () => {
                   helped in saving time as prescriptions, bills and other
                   calculations are maintained digitally.
                 </p>
-                <Link style={{ textDecoration: "none" }} to="/AppointmentForm">
+                <Link style={{ textDecoration: "none" }} to="/FilterPage">
                   <Button className="button">GET APPOINTMENT</Button>
                 </Link>
               </div>
@@ -158,9 +158,10 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
-                    I liked how user-friendly the app is.
-                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
+                    This app is super useful and helpful for users that lack
+                    advanced knowledge in Online Appointment. I liked how
+                    user-friendly the app is. I would recommend this app to
+                    anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
@@ -180,9 +181,10 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
-                    I liked how user-friendly the app is.
-                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
+                    This app is super useful and helpful for users that lack
+                    advanced knowledge in Online Appointment. I liked how
+                    user-friendly the app is. I would recommend this app to
+                    anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
@@ -202,13 +204,14 @@ const Home = () => {
               >
                 <Card.Body style={{ textAlign: "center" }}>
                   <Card.Text>
-                    This app is super useful and helpful for users that lack advanced knowledge in Online Appointment.
-                    I liked how user-friendly the app is.
-                    I would recommend this app to anyone who is looking for a quick and easy Appointment. “
+                    This app is super useful and helpful for users that lack
+                    advanced knowledge in Online Appointment. I liked how
+                    user-friendly the app is. I would recommend this app to
+                    anyone who is looking for a quick and easy Appointment. “
                   </Card.Text>
                 </Card.Body>
                 <Card.Header style={{ border: "none", display: "flex" }}>
-                  <img src={ellips3   } alt="" />
+                  <img src={ellips3} alt="" />
                   <div className="patientinfo">
                     <p>Tofu Lisa</p>
                     <p>Barisal</p>

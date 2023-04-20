@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import PhotoCamera from "@mui/icons-material/PhotoCamera";
 
 import {
   Typography,
@@ -32,6 +34,8 @@ const steps = [
 
 const LinearStepper = () => {
   const navigate = useNavigate();
+  const [file, setFile] = useState(null);
+  const [imageUrl, setImageUrl] = useState(null);
 
   const [activeStep, setActiveStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
@@ -43,6 +47,14 @@ const LinearStepper = () => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+    setImageUrl(URL.createObjectURL(event.target.files[0]));
+  };
+
+  const formData = new FormData();
+  formData.append("image", file);
 
   const formik = useFormik({
     initialValues: {
@@ -69,6 +81,7 @@ const LinearStepper = () => {
       age: "",
       status: "STATUS_PENDING",
       descryption: "abcdf",
+      formData: "",
     },
 
     validationSchema: Yup.object({
@@ -127,6 +140,7 @@ const LinearStepper = () => {
           adhar_no: values.adhar_no,
           status: values.status,
           descryption: values.descryption,
+          formData: values.formData,
         })
         .then((response) => {
           console.log("API response:", response);
@@ -162,6 +176,42 @@ const LinearStepper = () => {
               <Typography variant="h6" gutterBottom>
                 Personal Information
               </Typography>
+
+              <Grid container spacing={2} alignItems="center">
+                <Grid item xs={12}>
+                  <input
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    id="raised-button-file"
+                    type="file"
+                    onChange={handleFileChange}
+                  />
+                  <label htmlFor="raised-button-file">
+                    <IconButton
+                      color="primary"
+                      aria-label="upload picture"
+                      component="span"
+                    >
+                      <input hidden accept="image/*" type="file" />
+                      <PhotoCamera />
+                      Upload your Image
+                    </IconButton>
+                  </label>
+                </Grid>{" "}
+                {imageUrl && (
+                  <Grid item xs={12}>
+                    <img
+                      src={imageUrl}
+                      alt="Uploaded file"
+                      style={{
+                        borderRadius: "50%",
+                        width: "100px",
+                        height: "100px",
+                      }}
+                    />
+                  </Grid>
+                )}
+              </Grid>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={4}>
                   <Field
@@ -207,6 +257,7 @@ const LinearStepper = () => {
                     }
                   />
                 </Grid>
+
                 <Grid item xs={12} sm={6}>
                   <Field
                     name="email"

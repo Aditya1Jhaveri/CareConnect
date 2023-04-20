@@ -94,6 +94,7 @@ const AppointmentForm = () => {
       symtoms: "",
       time: "",
       date: "",
+      status: "STATUS_PENDING",
     },
     validationSchema: Yup.object({
       patientname: Yup.string().required("Name is required"),
@@ -344,6 +345,16 @@ const AppointmentForm = () => {
                     </Select>
                   </FormControl>
                 </Grid>
+
+                <input
+                  style={{ display: "none" }}
+                  disabled
+                  name="status"
+                  value={formik.values.status}
+                  onChange={formik.handleChange}
+                  error={formik.touched.status && Boolean(formik.errors.status)}
+                  helperText={formik.touched.status && formik.errors.status}
+                ></input>
 
                 <Grid item xs={12} sm={6}>
                   <FormControl className={classes.formControl} fullWidth>

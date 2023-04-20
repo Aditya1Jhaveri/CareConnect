@@ -1,55 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
-// import { useEffect } from 'react'
-import { useState } from "react";
+import axios from "axios";
 import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
 import Button from "@mui/material/Button";
-import { User } from "./User";
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
-const DoctorDashboard = () => {
-  // const [appointment, setAppointment] = useState([])
+const DoctorDashboard = (props) => {
   const [action1, setAction1] = useState(null);
   const [key, setKey] = useState(null);
+  const [userData, setUserData] = useState([]);
 
-  // const pendingAppointment = appointment.filter(
-  //   (pa) => pa.action1 === 'pending',
-  // )
-  // const todaysDate = new Date()
-  // const day = todaysDate.getDate()
-  // const month = todaysDate.getMonth()
-  // const year = todaysDate.getFullYear()
-  // const fullTodaysDate = month + 1 + '/' + day + '/' + year
-  // const selectedDateAppointment = appointment.filter(
-  //   (appointment) => appointment.details.date === fullTodaysDate,
-  // )
-
-  // const handleChange = (event) => {
-  //     let action1 = event.target.value;
-  //     const actions = { action1: action1, key };
-  //     fetch("https://guarded-anchorage-08361.herokuapp.com/modifyAction1ByKey", {
-  //         method: "post",
-  //         headers: {
-  //             "Content-type": "application/json"
-  //         },
-  //         body: JSON.stringify(actions)
-  //     })
-  //         .then(response => response.json())
-  //         .then(data => {
-  //             setAction1(data)
-  //             console.log(data);
-  //         })
-  // }
-
-  // useEffect(() => {
-  //     fetch("https://guarded-anchorage-08361.herokuapp.com/appointment")
-  //         .then(res => res.json())
-  //         .then(data => {
-  //             const fetchedData = data.reverse()
-  //             setAppointment(fetchedData);
-  //         });
-  // }, [action1]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:9595/api/v1/approvedbooking")
+      .then((response) => {
+        console.log(response.data);
+        setUserData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>
@@ -58,7 +30,7 @@ const DoctorDashboard = () => {
         <div className="docdashboardTable">
           <div className="docdashboardHeading">
             <div style={{ backgroundColor: "tomato" }}>
-              {/* <h1>{pendingAppointment.length}</h1> */}
+              {/* <h1>{userData.length}</h1> */}
               <p>
                 Pending
                 <br />
@@ -74,7 +46,7 @@ const DoctorDashboard = () => {
               </p>
             </div>
             <div style={{ backgroundColor: "mediumseagreen" }}>
-              <h1>{User.length}</h1>
+              <h1>{userData.length}</h1>
               <p>
                 Total
                 <br />
@@ -82,7 +54,7 @@ const DoctorDashboard = () => {
               </p>
             </div>
             <div style={{ backgroundColor: "orange" }}>
-              <h1>{User.length}</h1>
+              <h1>{userData.length}</h1>
               <p>
                 Total
                 <br />
@@ -98,31 +70,51 @@ const DoctorDashboard = () => {
                   <thead>
                     <tr>
                       <th align="left">Sr. No</th>
-                      <th align="center">Date</th>
+                      <th align="center">Patient Name</th>
+                      <th align="center">Age</th>
+                      <th align="left">Email</th>
+                      <th align="center">Contact No</th>
+                      <th align="center">Weight</th>
+                      <th align="center">City</th>
+                      <th align="center">Symptons</th>
                       <th align="center">Time</th>
-                      <th align="left">Name</th>
-                      <th align="center">Contact</th>
+                      <th align="center">Date</th>
                       <th align="center">Prescription</th>
                       <th align="center">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {User.map((appoint) => (
+                    {userData.map((appoint) => (
                       <tr key={appoint._id}>
                         <td align="left" data-th="Sr. No">
-                          {User.indexOf(appoint) + 1}
+                          {userData.indexOf(appoint) + 1}
                         </td>
-                        <td align="center" data-th="Date">
-                          {appoint.date}
+                        <td align="center" data-th="Patient Name">
+                          {appoint.patientname}
+                        </td>
+                        <td align="center" data-th="Age">
+                          {appoint.age}
+                        </td>
+                        <td align="left" data-th="Email">
+                          {appoint.email}
+                        </td>
+                        <td align="center" data-th="Contact No">
+                          {appoint.mobileNo}
+                        </td>
+                        <td align="center" data-th="Weight">
+                          {appoint.weight}
+                        </td>
+                        <td align="center" data-th="City">
+                          {appoint.city}
+                        </td>
+                        <td align="center" data-th="Symptons">
+                          {appoint.symtoms}
                         </td>
                         <td align="center" data-th="Time">
                           {appoint.time}
                         </td>
-                        <td align="left" data-th="Name">
-                          {appoint.name}
-                        </td>
-                        <td align="center" data-th="Contact">
-                          {appoint.phoneNumber}
+                        <td align="center" data-th="Date">
+                          {appoint.date}
                         </td>
                         <td align="center" data-th="Prescription">
                           Not Added
