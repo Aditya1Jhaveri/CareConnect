@@ -1,27 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { Card } from "react-bootstrap";
-// import "../Component/List.css";
+import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import API from "./API";
+// import API from "./API";
 // import { light } from '@mui/material/styles/createPalette';
 
 const FilterPage = () => {
-  const [data, setData] = useState(API);
+  const navigate = useNavigate();
+  const bookappoint = () => {
+    navigate("/AppointmentForm");
+  };
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:9595/api/v1/approvedclinic")
+      .then((response) => {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
-    // symptactic Sugar form
     <>
       <h1
         className="text-center text-info"
-        style={{ backgroundColor: "lightgreen" }}
+        style={{ backgroundColor: "white", marginBottom: -60 }}
       >
         List of Clinics
       </h1>
       <div
         className="container-fluid mx-2"
-        style={{ backgroundColor: "lightblue" }}
+        style={{
+          backgroundColor: "lightblue",
+          borderRadius: 20,
+          marginTop: 80,
+        }}
       >
         <div className="row mt-5 mx-2">
           <div className="col-md-3"></div>
@@ -29,13 +51,14 @@ const FilterPage = () => {
             style={{
               width: 200,
               fontSize: 50,
-              height: 900,
-              marginLeft: -520,
+              height: 500,
+              marginLeft: -350,
               borderRadius: 30,
               borderColor: "black",
+              marginTop: 50,
             }}
           >
-            <FormGroup style={{ marginLeft: 20 }}>
+            <FormGroup style={{ marginLeft: 20, width: 50, marginTop: 50 }}>
               <FormControlLabel control={<Checkbox />} label="Dermitologist" />
               <FormControlLabel control={<Checkbox />} label="Cardiologist" />
               <FormControlLabel control={<Checkbox />} label="Audiologist" />
@@ -50,18 +73,19 @@ const FilterPage = () => {
           <div className="col-md-9">
             <div className="row">
               {data.map((values) => {
-                const { id } = values;
+                // const { id } = values
                 return (
                   <>
                     <Card
                       className="shadow-lg p-3 mb-5 bg-white rounded"
-                      key={id}
+                      key={data.indexOf(values) + 1}
                       style={{
                         backgroundColor: "lightgrey",
-                        width: "200rem",
+                        width: "300rem",
                         borderRadius: 10,
                         height: 500,
-                        marginLeft: 250,
+                        marginLeft: 100,
+                        marginTop: 50,
                       }}
                     >
                       <div style={{ alignContent: "center" }}>
@@ -80,7 +104,13 @@ const FilterPage = () => {
                       <Card.Body>
                         <div style={{ marginTop: -300, marginLeft: 210 }}>
                           <Card.Title style={{ textAlign: "", fontSize: 29 }}>
-                            Name: {values.title}
+                            Name:
+                            {"Dr " +
+                              values.firstname +
+                              " " +
+                              values.middlename +
+                              " " +
+                              values.lastname}
                           </Card.Title>
                           <p style={{ fontSize: 20 }}>{values.work}</p>
                           <p style={{ fontSize: 19 }}>
@@ -92,28 +122,24 @@ const FilterPage = () => {
                             {values.gender}
                           </p>
                           <p style={{ fontSize: 19 }}>
-                            <b>Mobile No.:</b> {values.mobile_no}
+                            <b>Mobile No.:</b> {values.mobileNo}
                           </p>
                           <p style={{ fontSize: 19 }}>
                             <b>Degree:</b> {values.degree}
                           </p>
                           <p style={{ fontSize: 19 }}>
-                            <b>Specialisation:</b> {values.specialisation}
+                            <b>Specialisation:</b> {values.speciallization}
                           </p>
                           <p style={{ fontSize: 19 }}>
-                            <b>Adhar No.: </b>
-                            {values.adhar_no}
-                          </p>
-                          <p style={{ fontSize: 19 }}>
-                            <b>License Id: </b>
-                            {values.license_id}
+                            <b>Experience of Year: </b>
+                            {values.experience}
                           </p>
                         </div>
-
+                        {/* right side details */}
                         <div
                           style={{
                             marginLeft: 400,
-                            marginTop: -350,
+                            marginTop: -290,
                             marginLeft: 750,
                           }}
                         >
@@ -127,35 +153,45 @@ const FilterPage = () => {
                           </p>
                           <p style={{ fontSize: 19 }}>
                             <b>Address: </b>
-                            {values.clinic_name}
+                            {values.street}
                           </p>
                           <p style={{ fontSize: 19 }}>
-                            <b>Date: </b>
-                            {values.date}
+                            <b>City: </b>
+                            {values.city}
                           </p>
                           <p style={{ fontSize: 19 }}>
-                            <b>Time: </b>
-                            {values.time}
+                            <b>State: </b>
+                            {values.state}
                           </p>
+
+                          <p style={{ fontSize: 19 }}>
+                            <b>Fees: </b>
+                            {values.fees}
+                          </p>
+                          <p style={{ fontSize: 19 }}>
+                            <b>Time: 8:00 Am to 9:00AM </b>
+                          </p>
+
                           <p style={{ fontSize: 19 }}>
                             <b>Type: </b>
                             {values.type}
                           </p>
                         </div>
-
                         <Button
                           style={{
-                            marginLeft: 1050,
-                            marginTop: 50,
-                            width: 200,
+                            marginLeft: 800,
+                            marginTop: 2,
+                            width: 190,
                             height: 50,
                           }}
                           variant="success"
+                          onClick={bookappoint}
                         >
                           Book Appointment
                         </Button>
                       </Card.Body>
                     </Card>
+                    ;
                   </>
                 );
               })}

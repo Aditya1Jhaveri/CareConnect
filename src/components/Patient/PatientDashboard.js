@@ -29,7 +29,7 @@ function PatientDashboard() {
             <MDBCol lg="8">
               <p
                 style={{
-                  marginLeft: 800,
+                  marginLeft: 500,
                   marginBottom: 50,
                   marginTop: 1,
                   fontWeight: "bolder",
@@ -43,16 +43,16 @@ function PatientDashboard() {
               <MDBCard
                 className="mb-8 "
                 style={{
-                  width: 1750,
+                  width: 1250,
                   marginLeft: 70,
                   borderColor: "black",
                   borderWidth: 5,
                 }}
               >
-                <MDBCardBody style={{ width: 1700, height: 1340 }}>
+                <MDBCardBody style={{ width: 2200, height: 1340 }}>
                   {/* Patient information */}
 
-                  <h4 style={{ margin: 20, marginLeft: 700 }}>
+                  <h4 style={{ margin: 20, marginLeft: 500 }}>
                     Patient Information
                   </h4>
 
@@ -121,7 +121,7 @@ function PatientDashboard() {
 
                   {/* Doctor Information */}
 
-                  <h4 style={{ margin: 60, marginLeft: 700, marginBottom: 30 }}>
+                  <h4 style={{ margin: 60, marginLeft: 500, marginBottom: 30 }}>
                     Doctor Information
                   </h4>
                   <MDBRow>
@@ -189,7 +189,7 @@ function PatientDashboard() {
 
                   {/* Date and Time */}
 
-                  <h4 style={{ margin: 60, marginLeft: 650, marginBottom: 30 }}>
+                  <h4 style={{ margin: 60, marginLeft: 450, marginBottom: 30 }}>
                     Date and Time of Appointment
                   </h4>
                   <MDBRow>
@@ -220,7 +220,7 @@ function PatientDashboard() {
                   <h4
                     style={{
                       margin: 60,
-                      marginLeft: 750,
+                      marginLeft: 500,
                       marginBottom: 30,
                       marginTop: 40,
                     }}

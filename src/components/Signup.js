@@ -1,4 +1,8 @@
 import React from "react";
+import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-input-material-ui";
+import "react-phone-input-material-ui/lib/style.css"; // import the styles
+
 import { useNavigate } from "react-router-dom";
 import {
   Grid,
@@ -197,9 +201,21 @@ const Signup = () => {
                 <MenuItem value={"ROLE_ADM"}>Admin</MenuItem>
               </Select>
             </FormControl>
-            <TextField
+            {/* <PhoneInput
               id="mobileNo"
               name="mobileNo"
+              variant="standard"
+              label="Phone Number"
+              defaultCountry="in"
+              value={formik.values.mobileNo}
+              onChange={formik.handleChange}
+              error={formik.touched.mobileNo && formik.errors.mobileNo}
+              helperText={formik.touched.mobileNo && formik.errors.mobileNo}
+              component={TextField}
+            /> */}
+            <TextField
+              name="mobileNo"
+              id="mobileNo"
               label="mobile No"
               variant="standard"
               fullWidth

@@ -8,8 +8,6 @@ import PprofilePage from "./components/Patient/PatAccount";
 import Pendingappointment from "./components/Doctor/PendingAppointment";
 import MyHistory from "./components/Patient/Patient Form/MyHistory";
 import Admindash from "./components/Admin/Admindash";
-import PrescriptionForm from "./components/Doctor/Doctor Form/PrescriptionForm";
-import FilterPage from "./components/Patient/FilterPage";
 
 function App() {
   return (
@@ -23,8 +21,6 @@ function App() {
         <Route path="/PatAccount" element={<PprofilePage />} />
         <Route path="/MyHistory" element={<MyHistory />} />
         <Route path="/Admindash" element={<Admindash />} />
-        <Route path="/PrescriptionForm" element={<PrescriptionForm />} />
-        <Route path="/FilterPage" element={<FilterPage />} />
       </Routes>
     </>
   );

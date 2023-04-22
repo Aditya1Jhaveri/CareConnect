@@ -10,6 +10,7 @@ import DoctorForm from "../Doctor/Doctor Form/DoctorForm";
 import Signup from "../Signup";
 import { AdminLogin } from "../Login Form/AdminLogin";
 import AppointmentForm from "../Patient/AppointmentForm ";
+import FilterPage from "../Patient/FilterPage";
 
 export default function OverviewPage() {
   return (
@@ -24,6 +25,7 @@ export default function OverviewPage() {
         <Route path="/AdminLogin" element={<AdminLogin />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/DoctorForm" element={<DoctorForm />} />
+        <Route path="/FilterPage" element={<FilterPage />} />
         <Route path="/AppointmentForm" element={<AppointmentForm />} />
       </Routes>
     </>

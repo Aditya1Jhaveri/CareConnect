@@ -36,6 +36,7 @@ const LinearStepper = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
+  const [clinicdata, setClinicdata] = useState();
 
   const [activeStep, setActiveStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
@@ -81,7 +82,6 @@ const LinearStepper = () => {
       age: "",
       status: "STATUS_PENDING",
       descryption: "abcdf",
-      formData: "",
     },
 
     validationSchema: Yup.object({
@@ -112,35 +112,67 @@ const LinearStepper = () => {
       adhar_no: Yup.string().required("required"),
     }),
 
+    clinicdata: {
+      firstname: "",
+      lastname: "",
+      middlename: "",
+      email: "",
+      mobileNo: "",
+      street: "",
+      city: "",
+      district: "",
+      state: "",
+      pincode: "",
+      clinic_name: "",
+      clinic_contact: "",
+      type: "",
+      degree: "",
+      experience: "",
+      speciallization: "",
+      license_id: "",
+      fees: "",
+      adhar_no: "",
+      gender: "",
+      age: "",
+      status: "STATUS_PENDING",
+      descryption: "abcdf",
+    },
+
     onSubmit: (values) => {
-      console.log("Form data:", values);
+      // console.log("Form data:", values);
       setSubmitting(true);
+      setClinicdata(values);
+      console.log("Form data:", values);
+      console.log("img:", formData);
+
       axios
         .post("http://localhost:9595/api/v1/clinic", {
-          firstname: values.firstname,
-          middlename: values.middlename,
-          lastname: values.lastname,
-          email: values.email,
-          gender: values.gender,
-          age: values.age,
-          mobileNo: values.mobileNo,
-          street: values.street,
-          city: values.city,
-          district: values.district,
-          state: values.state,
-          pincode: values.pincode,
-          clinic_name: values.clinic_name,
-          clinic_contact: values.clinic_contact,
-          type: values.type,
-          degree: values.degree,
-          experience: values.experience,
-          speciallization: values.speciallization,
-          license_id: values.license_id,
-          fees: values.fees,
-          adhar_no: values.adhar_no,
-          status: values.status,
-          descryption: values.descryption,
-          formData: values.formData,
+          values,
+          formData,
+          // firstname: values.firstname,
+          // middlename: values.middlename,
+          // lastname: values.lastname,
+          // email: values.email,
+          // gender: values.gender,
+          // age: values.age,
+          // mobileNo: values.mobileNo,
+          // street: values.street,
+          // city: values.city,
+          // district: values.district,
+          // state: values.state,
+          // pincode: values.pincode,
+          // clinic_name: values.clinic_name,
+          // clinic_contact: values.clinic_contact,
+          // type: values.type,
+          // degree: values.degree,
+          // experience: values.experience,
+          // speciallization: values.speciallization,
+          // license_id: values.license_id,
+          // fees: values.fees,
+          // adhar_no: values.adhar_no,
+          // status: values.status,
+          // descryption: values.descryption,
+          // formData: values.formData,
         })
         .then((response) => {
           console.log("API response:", response);
@@ -507,7 +539,7 @@ const LinearStepper = () => {
                     }
                     InputProps={{
                       endAdornment: (
-                        <InputAdornment position="end">Kg</InputAdornment>
+                        <InputAdornment position="end">Year</InputAdornment>
                       ),
                     }}
                   />

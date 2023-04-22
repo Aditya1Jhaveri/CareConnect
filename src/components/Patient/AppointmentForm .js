@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: "white",
     backgroundColor: "green",
-    marginLeft: "350px",
+    marginLeft: "450px",
     fontSize: "18px",
   },
   Calendar: {
@@ -143,6 +143,7 @@ const AppointmentForm = () => {
           symtoms: values.symtoms,
           time: time,
           date: isoDate,
+          status: values.status,
         })
         .then((response) => {
           console.log("API response:", response);
