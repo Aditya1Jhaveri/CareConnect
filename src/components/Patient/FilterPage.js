@@ -16,6 +16,7 @@ const FilterPage = () => {
   };
 
   const [data, setData] = useState([]);
+  const [img, setImg] = useState([]);
 
   useEffect(() => {
     axios
@@ -26,6 +27,17 @@ const FilterPage = () => {
       })
       .catch((error) => {
         console.log(error);
+      });
+  }, []);
+
+  console.log(img);
+
+  useEffect(() => {
+    fetch("http://localhost:9595/api/v1/image")
+      .then((response) => response.blob())
+      .then((blob) => {
+        const objectURL = URL.createObjectURL(blob);
+        setImg(objectURL);
       });
   }, []);
 
@@ -89,9 +101,11 @@ const FilterPage = () => {
                       }}
                     >
                       <div style={{ alignContent: "center" }}>
+                        {/* <img src={img} alt="API Image" /> */}
                         <Card.Img
                           variant="left"
-                          src="./Images/Img1.jpeg"
+                          src={img}
+                          alt="myimage"
                           style={{
                             width: 170,
                             height: 170,
@@ -102,7 +116,7 @@ const FilterPage = () => {
                         />
                       </div>
                       <Card.Body>
-                        <div style={{ marginTop: -300, marginLeft: 210 }}>
+                        <div style={{ marginTop: -150, marginLeft: 210 }}>
                           <Card.Title style={{ textAlign: "", fontSize: 29 }}>
                             Name:
                             {"Dr " +

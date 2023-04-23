@@ -183,3 +183,11 @@
   background-position: fixed;
   background-repeat: no-repeat;
 }
+
+hr {
+  width: 100%;
+}
+
+.hr-line {
+  width: 100%;
+}

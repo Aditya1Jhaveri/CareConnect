@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button } from "@material-ui/core";
 
-import "./pdash.css";
+import "./PatientDashboard.css";
 import PatientSidebar from "./PatSidebar";
 import {
   MDBCol,
@@ -49,7 +49,7 @@ function PatientDashboard() {
                   borderWidth: 5,
                 }}
               >
-                <MDBCardBody style={{ width: 2200, height: 1340 }}>
+                <MDBCardBody>
                   {/* Patient information */}
 
                   <h4 style={{ margin: 20, marginLeft: 500 }}>
@@ -62,11 +62,11 @@ function PatientDashboard() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        Naman Om Tyagi
+                        Priyansh Soni
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
-                  <hr />
+                  <hr className="hr-line" />
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>Gender:</MDBCardText>
@@ -75,23 +75,23 @@ function PatientDashboard() {
                       <MDBCardText className="text-muted">Male</MDBCardText>
                     </MDBCol>
                   </MDBRow>
-                  <hr />
+                  <hr className="hr-line" />
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>Age:</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">45</MDBCardText>
+                      <MDBCardText className="text-muted">21</MDBCardText>
                     </MDBCol>
                   </MDBRow>
-                  <hr />
+                  <hr className="hr-line" />
                   <MDBRow>
                     <MDBCol sm="3">
                       <MDBCardText>Email Id:</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        naman@gmail.com
+                        priyanshsoni186@gmail.com
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>
@@ -198,7 +198,7 @@ function PatientDashboard() {
                     </MDBCol>
                     <MDBCol sm="9">
                       <MDBCardText className="text-muted">
-                        25th January 2023
+                        24th April 2023
                       </MDBCardText>
                     </MDBCol>
                   </MDBRow>

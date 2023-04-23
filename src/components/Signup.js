@@ -1,7 +1,7 @@
 import React from "react";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-input-material-ui";
-import "react-phone-input-material-ui/lib/style.css"; // import the styles
+// import "react-phone-number-input/style.css";
+// import PhoneInput from "react-phone-input-material-ui";
+// import "react-phone-input-material-ui/lib/style.css"; // import the styles
 
 import { useNavigate } from "react-router-dom";
 import {

@@ -1,14 +1,12 @@
 import React from "react";
-import "./MyHistory.css";
 // import { useEffect } from 'react'
 import { useState } from "react";
 import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
-import { User } from "../../Doctor/User";
+import { User } from "./User";
 import { Table } from "react-bootstrap";
-import PatientSidebar from "../PatSidebar";
-// import PatSidebar from "./Pat";
+import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
-const MyHistory = () => {
+const DHistory = () => {
   // const [appointment, setAppointment] = useState([])
   const [action1, setAction1] = useState(null);
   const [key, setKey] = useState(null);
@@ -53,7 +51,7 @@ const MyHistory = () => {
 
   return (
     <div>
-      <PatientSidebar />
+      <DoctorSidebar />
       <div className="dashboard">
         <div className="dashboardTable">
           {/* <div className="dashboardHeading">
@@ -92,7 +90,7 @@ const MyHistory = () => {
           <div className="dashboardTableDetails">
             <div className="table-responsive">
               <p style={{ textAlign: "center", fontSize: 20 }}>
-                Your Pass Appointments
+                Pass Appointments
               </p>
               <TableContainer component={Paper}>
                 <Table>
@@ -172,4 +170,4 @@ const MyHistory = () => {
   );
 };
 
-export default MyHistory;
+export default DHistory;

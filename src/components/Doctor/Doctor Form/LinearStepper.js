@@ -36,7 +36,7 @@ const LinearStepper = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [imageUrl, setImageUrl] = useState(null);
-  const [clinicdata, setClinicdata] = useState();
+  // const [clinicdata, setClinicdata] = useState();
 
   const [activeStep, setActiveStep] = useState(0);
   const [submitting, setSubmitting] = useState(false);
@@ -55,7 +55,8 @@ const LinearStepper = () => {
   };
 
   const formData = new FormData();
-  formData.append("image", file);
+  // formData.append('clinicdata', `{"id":257,"firstname":"Abhi","middlename":"Shek","lastname":"Sharma","gender":"Male","age":"30","mobileNo":"2457653477","degree":"D.Arch.","speciallization":"Pediatrician","adhar_no":"97583427658","license_id":"A235643","clinic_name":"Sharma Clinic","clinic_contact":"23275598394","fees":"500Rs","district":"Ahmedabad","city":"Gandhinagar","state":"Gujarat","pincode":"45377","descryption":null,"type":"JOIN","street":null,"email":null,"doc_image":null,"status":"STATUS_APPROVED"}`);
+  // formData.append("formData", file);
 
   const formik = useFormik({
     initialValues: {
@@ -112,68 +113,20 @@ const LinearStepper = () => {
       adhar_no: Yup.string().required("required"),
     }),
 
-    clinicdata: {
-      firstname: "",
-      lastname: "",
-      middlename: "",
-      email: "",
-      mobileNo: "",
-      street: "",
-      city: "",
-      district: "",
-      state: "",
-      pincode: "",
-      clinic_name: "",
-      clinic_contact: "",
-      type: "",
-      degree: "",
-      experience: "",
-      speciallization: "",
-      license_id: "",
-      fees: "",
-      adhar_no: "",
-      gender: "",
-      age: "",
-      status: "STATUS_PENDING",
-      descryption: "abcdf",
-    },
-
-    onSubmit: (values) => {
-      // console.log("Form data:", values);
+    onSubmit: (formik) => {
+      console.log("formik", formik);
+      formData.append("clinicdata", JSON.stringify(formik));
+      formData.append("formData", file);
       setSubmitting(true);
-      setClinicdata(values);
-      console.log("Form data:", values);
-      console.log("img:", formData);
 
-      axios
-        .post("http://localhost:9595/api/v1/clinic", {
-          values,
-          formData,
-          // firstname: values.firstname,
-          // middlename: values.middlename,
-          // lastname: values.lastname,
-          // email: values.email,
-          // gender: values.gender,
-          // age: values.age,
-          // mobileNo: values.mobileNo,
-          // street: values.street,
-          // city: values.city,
-          // district: values.district,
-          // state: values.state,
-          // pincode: values.pincode,
-          // clinic_name: values.clinic_name,
-          // clinic_contact: values.clinic_contact,
-          // type: values.type,
-          // degree: values.degree,
-          // experience: values.experience,
-          // speciallization: values.speciallization,
-          // license_id: values.license_id,
-          // fees: values.fees,
-          // adhar_no: values.adhar_no,
-          // status: values.status,
-          // descryption: values.descryption,
-          // formData: values.formData,
-        })
+      console.log(formData);
+
+      axios({
+        method: "post",
+        url: "http://localhost:9595/api/v1/clinic",
+        headers: {},
+        data: formData,
+      })
         .then((response) => {
           console.log("API response:", response);
           toast.success("Login successful!");

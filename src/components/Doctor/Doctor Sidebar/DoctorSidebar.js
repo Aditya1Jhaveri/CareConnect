@@ -82,7 +82,7 @@ function Sidebar() {
                 </span>
               </a>
 
-              <a href="/PrescriptionForm" className="nav_link">
+              <a href="/DHistory" className="nav_link">
                 <FaHistory style={{ fontSize: "1.5rem" }} />
                 <span className="nav_name">Patient History</span>
               </a>

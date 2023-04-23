@@ -36,17 +36,19 @@ function PatientSidebar() {
 
         <Patprofile />
       </header>
-      <div className={`l-navbar${showNav ? " show" : ""}`}
+      <div
+        className={`l-navbar${showNav ? " show" : ""}`}
         onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}>
+        onMouseLeave={handleMouseLeave}
+      >
         <nav className="nav">
           <div>
             <a href="/" className="nav_logo">
-            {showNav && (
-              <div className="header_toggle">
-                <BiX className="close-btn" onClick={handleClose} />
-              </div>
-            )}
+              {showNav && (
+                <div className="header_toggle">
+                  <BiX className="close-btn" onClick={handleClose} />
+                </div>
+              )}
               <img
                 src={CareConnectLogo}
                 alt=""
@@ -67,7 +69,10 @@ function PatientSidebar() {
                   className="bi bi-person-check nav_icon"
                   style={{ fontSize: "1.5rem" }}
                 />
-                <span className="nav_name">Book Appointment</span>
+                <span className="nav_name">
+                  Book <br />
+                  Appointment
+                </span>
               </a>
 
               <a href="/MyHistory" className="nav_link">

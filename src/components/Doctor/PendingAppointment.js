@@ -8,6 +8,23 @@ import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 const Pendingappointment = () => {
   const [key, setKey] = useState(null);
   const [userPendata, setuserPendata] = useState([]);
+  const [data, setData] = useState({
+    toUser: "",
+    subject: "Your appointment has been scheduled",
+    message:
+      "Dear [Patient],\n" +
+      "I am writing to confirm that your appointment has been successfully booked at our clinic. We look forward to seeing you on [Date] at [Time] for your scheduled visit.\n" +
+      "Please be sure to bring any necessary medical records or documentation with you to your appointment, and arrive a few minutes early to allow for check-in and paperwork.\n" +
+      "If you have any questions or concerns before your appointment, please don't hesitate to contact us. We are here to support you and ensure that you receive the best possible care.\n" +
+      "Thank you for choosing our clinic for your healthcare needs. We are honored to have the opportunity to serve you.\n" +
+      "Best regards," +
+      "[Your Name]" +
+      "[Your Title]" +
+      " [Name of Clinic]",
+    patientname: "",
+    time: "",
+    date: "",
+  });
 
   useEffect(() => {
     axios
@@ -34,6 +51,57 @@ const Pendingappointment = () => {
         });
     } else {
       console.log("Invalid appointment ID");
+    }
+  };
+
+  const bookappointsent = async (toUser, patientname, time, date) => {
+    console.log("Sending email:", {
+      toUser,
+      subject: data.subject,
+      message:
+        "Dear " +
+        patientname +
+        ",\n\n" +
+        "I am writing to confirm that your appointment has been successfully booked at our clinic. We look forward to seeing you on" +
+        date +
+        "at" +
+        time +
+        "for your scheduled visit.\n\n" +
+        "Please be sure to bring any necessary medical records or documentation with you to your appointment.\n\n" +
+        "If you have any questions or concerns before your appointment, please don't hesitate to contact us. We are here to support you and ensure that you receive the best possible care.\n\n" +
+        "Thank you for choosing our clinic for your healthcare needs. We are honored to have the opportunity to serve you.\n\n" +
+        "Best regards," +
+        "CareConnect",
+    });
+    try {
+      const response = await axios.post(
+        "http://localhost:9595/api/v1/sendEmail",
+        {
+          toUser,
+          subject: data.subject,
+          message:
+            "Dear " +
+            patientname +
+            ",\n\n" +
+            "This email is to confirm that your appointment has been successfully booked at our clinic. We look forward to seeing you on " +
+            date +
+            " at " +
+            time +
+            " for your scheduled visit.\n\n" +
+            "Please be sure to bring any necessary medical records or documentation with you to your appointment. If you have any questions or concerns before your appointment, please don't hesitate to contact us. We are here to support you and ensure that you receive the best possible care.\n\n" +
+            "Thank you for choosing our clinic for your healthcare needs. We are honored to have the opportunity to serve you.\n\n" +
+            "Best regards,\n" +
+            "CareConnect",
+        }
+      );
+      console.log("Email sent:", response.data);
+      setData({
+        toUser: "",
+        subject: data.subject,
+        message: data.message,
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
     }
   };
 
@@ -114,6 +182,12 @@ const Pendingappointment = () => {
                             value={"approved"}
                             onClick={() => {
                               handleApproval(appoint.id);
+                              bookappointsent(
+                                appoint.email,
+                                appoint.patientname,
+                                appoint.time,
+                                appoint.date
+                              );
                               window.location.reload();
                             }}
                           >

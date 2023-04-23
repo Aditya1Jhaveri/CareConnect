@@ -8,6 +8,7 @@ import PprofilePage from "./components/Patient/PatAccount";
 import Pendingappointment from "./components/Doctor/PendingAppointment";
 import MyHistory from "./components/Patient/Patient Form/MyHistory";
 import Admindash from "./components/Admin/Admindash";
+import DHistory from "./components/Doctor/DHistory";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/DoctorDashboard" element={<DoctorDashboard />} />
         <Route path="/PendingAppointment" element={<Pendingappointment />} />
         <Route path="/DocAccount" element={<DprofilePage />} />
+        <Route path="/DHistory" element={<DHistory />} />
         <Route path="/PatientDashboard" element={<PatientDashboard />} />
         <Route path="/PatAccount" element={<PprofilePage />} />
         <Route path="/MyHistory" element={<MyHistory />} />

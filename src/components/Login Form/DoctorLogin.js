@@ -29,7 +29,7 @@ export const DoctorLogin = () => {
   let [authMode, setAuthMode] = useState("signin");
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin");
-    navigate("/Signup");
+    navigate("/DoctorForm");
   };
 
   const [eye, setEye] = useState();
@@ -67,7 +67,7 @@ export const DoctorLogin = () => {
         .then((response) => {
           console.log("API response:", response);
           toast.success("Login successful!");
-          navigate("/DoctorForm");
+          navigate("/DoctorDashboard");
           // Handle successful response here, if needed
         })
         .catch((error) => {
@@ -255,7 +255,7 @@ export const DoctorLogin = () => {
                 <div className="text-center">
                   Not registered yet?{" "}
                   <span className="link-primary" onClick={changeAuthMode}>
-                    Sign Up
+                    Register clinic here
                   </span>
                 </div>
               </div>
