@@ -116,7 +116,7 @@ const FilterPage = () => {
                         />
                       </div>
                       <Card.Body>
-                        <div style={{ marginTop: -150, marginLeft: 210 }}>
+                        <div style={{ marginTop: -280, marginLeft: 210 }}>
                           <Card.Title style={{ textAlign: "", fontSize: 29 }}>
                             Name:
                             {"Dr " +
@@ -153,7 +153,7 @@ const FilterPage = () => {
                         <div
                           style={{
                             marginLeft: 400,
-                            marginTop: -290,
+                            marginTop: -330,
                             marginLeft: 750,
                           }}
                         >
@@ -163,7 +163,7 @@ const FilterPage = () => {
                           </p>
                           <p style={{ fontSize: 19 }}>
                             <b>Clinic Contact: </b>
-                            {values.clinic_no}
+                            {values.clinic_contact}
                           </p>
                           <p style={{ fontSize: 19 }}>
                             <b>Address: </b>
