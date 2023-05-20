@@ -11,7 +11,7 @@ https://github.com/Aditya1Jhaveri/CareConnect.git
 
 Once you have cloned the repository, navigate to the project directory and install the dependencies:
 ```bash
-cd careconnect
+cd Front-end
 npm install
 ```
 
