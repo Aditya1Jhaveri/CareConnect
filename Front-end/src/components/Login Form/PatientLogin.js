@@ -95,10 +95,10 @@ export const PatientLogin = () => {
               marginLeft: "40px",
             }}
           />
-          <div className="Auth-form-container">
-            <form className="Auth-form" onSubmit={formik.handleSubmit}>
+          <div className="auth-form-container">
+            <form className="auth-form" onSubmit={formik.handleSubmit}>
               <ToastContainer />
-              <div className="Auth-form-content">
+              <div className="auth-form-content">
                 <div className="container">
                   <div className="inner-container">
                     <button
@@ -183,7 +183,7 @@ export const PatientLogin = () => {
                   </div>
                 </div>
 
-                <h3 className="Auth-form-title">Patient Sign In</h3>
+                <h3 className="auth-form-title">Patient Sign In</h3>
 
                 <div className="form-group mt-3">
                   <TextField
@@ -232,7 +232,7 @@ export const PatientLogin = () => {
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
-                          <IconButton onClick={handleEye}>
+                          <IconButton onClick={handleEye} className="eye-icon">
                             {eye ? <VisibilityIcon /> : <VisibilityOffIcon />}
                           </IconButton>
                         </InputAdornment>

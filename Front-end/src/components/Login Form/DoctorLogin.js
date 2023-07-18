@@ -231,7 +231,7 @@ export const DoctorLogin = () => {
                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
-                          <IconButton onClick={handleEye}>
+                          <IconButton onClick={handleEye} className="eye-icon">
                             {eye ? <VisibilityIcon /> : <VisibilityOffIcon />}
                           </IconButton>
                         </InputAdornment>

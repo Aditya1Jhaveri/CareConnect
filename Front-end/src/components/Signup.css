@@ -1,11 +1,11 @@
-#signup{
-    width: 460px;
-    display: flex;
-    justify-content: center;
+#signup {
+  width: 460px;
+  display: flex;
+  justify-content: center;
 }
-#select{
-    height: 100%;
-    width: 500px;
+#select {
+  height: 100%;
+  width: 500px;
 }
 
 /* .signupimg{

@@ -4,6 +4,7 @@
 }
 .footer > div:first-child {
   display: flex;
+  flex-direction: row;
 }
 .footer > div > * {
   width: 33.33%;

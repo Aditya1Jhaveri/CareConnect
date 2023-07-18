@@ -17,8 +17,8 @@
   padding-bottom: 20px;
   border-radius: 8px;
   /* background-color: #e1f1f3; */
-  margin-left: 150px;
-  margin-right: 150px;
+  /* margin-left: 150px;
+  margin-right: 150px; */
   margin-top: 50px;
 }
 
@@ -103,7 +103,16 @@ label {
   }
   .doctorimg {
     display: none !important;
-    margin-top: 20px;  
-    
+    margin-top: 20px;
+  }
+  .Auth-form {
+    width: 360px;
+  }
+}
+
+@media (max-width: 800px) {
+  .eye-icon {
+    transform: translateY(-80%);
+    right: -100px;
   }
 }

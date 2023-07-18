@@ -2,7 +2,7 @@
   background-color: white;
 }
 
-.Auth-form-container {
+.auth-form-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,12 +22,12 @@
   margin-top: 50px;
 }
 
-.Auth-form-content {
+.auth-form-content {
   padding-left: 12%;
   padding-right: 12%;
 }
 
-.Auth-form-title {
+.auth-form-title {
   text-align: center;
   margin-bottom: 1em;
   font-size: 24px;
@@ -97,15 +97,23 @@ label {
   margin-top: 20px;
 }
 
-
-
 @media only screen and (max-width: 800px) {
   div {
     flex-direction: column;
   }
   .patientimg {
     display: none !important;
-    margin-top: 20px;  
-    
+    margin-top: 20px;
+  }
+
+  .eye-icon {
+    transform: translateY(-80%);
+    right: -100px;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .auth-form {
+    width: 350px;
   }
 }

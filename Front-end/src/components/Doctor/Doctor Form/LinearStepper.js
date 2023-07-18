@@ -130,7 +130,7 @@ const LinearStepper = () => {
         .then((response) => {
           console.log("API response:", response);
           toast.success("Login successful!");
-          navigate("/DoctorDashboard");
+          navigate("/DoctorLogin");
           // Handle successful response here, if needed
         })
         .catch((error) => {

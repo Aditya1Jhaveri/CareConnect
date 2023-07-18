@@ -12,8 +12,8 @@ const Admindash = () => {
     toUser: "",
     subject: "Your Clinic has been Approved",
     message:
-      "Dear Doctor,\n\n" +
-      "I hope this message finds you well. This email is to inform you that your clinic has been added to my website from the admin.\n\n" +
+      " Dear Doctor,\n\n" +
+      "I hope this message finds you well. This email is to inform you that your clinic has been added to CareConnect from the admin.\n\n" +
       "As you may know, my website serves as a platform for people to find local healthcare providers and clinics. Adding your clinic to the website will enable patients in the area to easily locate and connect with you.\n\n" +
       "I would appreciate it if you could confirm that all the information about your clinic on my website is accurate and up-to-date. If there are any changes or updates that need to be made, please let me know as soon as possible so that I can make the necessary adjustments.\n\n" +
       "Thank you for your attention to this matter. I look forward to continuing to work with you to provide quality healthcare services to our community.\n\n" +

@@ -28,7 +28,7 @@ const Signup = () => {
 
   const paperStyle = {
     padding: "30px 20px",
-    width: 500,
+    width: 400,
     innerHeight: 100,
     outerHeight: 100,
     margin: "20px auto",
@@ -121,7 +121,7 @@ const Signup = () => {
         }}
       />
       <Grid>
-        <Paper elevation={10} style={paperStyle} width={200}>
+        <Paper elevation={10} style={paperStyle}>
           <Grid align="center">
             <Avatar style={avatarStyle}>
               {/* <AddCircleOutlineOutlinedIcon /> */}
@@ -181,7 +181,7 @@ const Signup = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-            <FormControl variant="standard" sx={{ minWidth: 460 }}>
+            <FormControl variant="standard" sx={{ minWidth: 360 }}>
               <InputLabel id="demo-simple-select-standard-label">
                 Role
               </InputLabel>
@@ -194,7 +194,7 @@ const Signup = () => {
                 error={formik.touched.role && Boolean(formik.errors.role)}
                 helperText={formik.touched.role && formik.errors.role}
                 label="Role"
-                width={460}
+                width={360}
               >
                 <MenuItem value={"ROLE_PAT"}>Patient</MenuItem>
                 <MenuItem value={"ROLE_DOC"}>Doctor</MenuItem>

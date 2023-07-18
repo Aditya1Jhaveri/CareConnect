@@ -31,7 +31,7 @@ const Home = () => {
                   <br />
                   Starts Here
                 </h1>
-                <p>
+                <p style={{ textAlign: "justify" }}>
                   Handling patient bills and appointment used to be a chaotic
                   scene in hospitals and clinics. Not anymore! With the arrival
                   of CareConnect Clinic Appointment Software, a systematic
@@ -68,7 +68,7 @@ const Home = () => {
                     boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: "center" }}>
+                  <Card.Body>
                     <img src={Appointment} alt="" width={150} />
                     <h3>Appointment</h3>
                     <li>Set up timings without any hurdle.</li>
@@ -86,7 +86,7 @@ const Home = () => {
                     boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: "center" }}>
+                  <Card.Body>
                     <img src={Billing} alt="" width={150} />
                     <h3>Billing</h3>
                     <li>
@@ -105,7 +105,7 @@ const Home = () => {
                     boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: "center" }}>
+                  <Card.Body>
                     <img src={Security} alt="" width={150} />
                     <h3>Security</h3>
                     <li>We comply with the international data norms.</li>
@@ -125,7 +125,7 @@ const Home = () => {
                     boxShadow: "5px 5px 10px lightGray",
                   }}
                 >
-                  <Card.Body style={{ textAlign: "center" }}>
+                  <Card.Body>
                     <img src={Record} alt="" width={150} />
                     <h3>Patient Records</h3>
                     <li>Improved care.</li>
