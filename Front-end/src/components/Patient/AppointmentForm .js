@@ -21,6 +21,7 @@ import "react-calendar/dist/Calendar.css";
 import "react-toastify/dist/ReactToastify.css";
 import Bookappoint from "../../images/Bookappointment.jpg";
 import { useNavigate } from "react-router-dom";
+import "./appointmentform.css";
 
 const useStyles = makeStyles((theme) => ({
   appointmentPaper: {
@@ -310,7 +311,7 @@ const AppointmentForm = () => {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={10} sm={10} className="cal">
               <Typography variant="subtitle1">Select Date:</Typography>
               <Calendar
                 className={classes.calendar}
