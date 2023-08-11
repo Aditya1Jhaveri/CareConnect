@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
+import "./doctorform.css";
 
 import {
   Typography,
@@ -149,7 +150,7 @@ const LinearStepper = () => {
       <Formik>
         <Form onSubmit={formik.handleSubmit}>
           <ToastContainer />
-          <Stepper activeStep={activeStep}>
+          <Stepper activeStep={activeStep} alternativeLabel>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -165,7 +166,7 @@ const LinearStepper = () => {
               <Grid container spacing={2} alignItems="center">
                 <Grid item xs={12}>
                   <input
-                    accept="image/*"
+                    accept="image/*, .pdf, .doc"
                     style={{ display: "none" }}
                     id="raised-button-file"
                     type="file"
@@ -312,7 +313,7 @@ const LinearStepper = () => {
                     }
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} className="test">
                   <Button
                     variant="contained"
                     color="primary"
@@ -392,7 +393,7 @@ const LinearStepper = () => {
                     helperText={formik.touched.pincode && formik.errors.pincode}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} className="test">
                   <Button
                     variant="contained"
                     color="default"
@@ -607,7 +608,7 @@ const LinearStepper = () => {
                   }
                 ></input>
 
-                <Grid item xs={12}>
+                <Grid item xs={12} className="test">
                   <Button
                     variant="contained"
                     color="default"

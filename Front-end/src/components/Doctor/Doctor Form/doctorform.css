@@ -11,3 +11,23 @@
 .MuiBox-root-4 {
   padding: 24px;
 }
+
+.test {
+  display: flex;
+  justify-content: space-around;
+  flex-grow: 0;
+  max-width: 100%;
+  flex-basis: 100%;
+  flex-direction: row;
+}
+
+.MuiInputAdornment-root {
+  /* height: 0.01em; */
+  display: flex;
+  max-height: 2em;
+  right: 0;
+  position: absolute;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: row;
+}
