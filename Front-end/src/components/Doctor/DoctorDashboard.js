@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.css";
 import axios from "axios";
-import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
+import { TableContainer, Paper } from "@material-ui/core";
 import Button from "@mui/material/Button";
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
 const DoctorDashboard = (props) => {
-  const [action1, setAction1] = useState(null);
+  // const [action1, setAction1] = useState(null);
   const [key, setKey] = useState(null);
   const [userData, setUserData] = useState([]);
 

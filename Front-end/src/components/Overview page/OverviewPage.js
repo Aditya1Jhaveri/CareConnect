@@ -9,7 +9,7 @@ import DoctorLogin from "../Login Form/DoctorLogin";
 import DoctorForm from "../Doctor/Doctor Form/DoctorForm";
 import Signup from "../Signup";
 import { AdminLogin } from "../Login Form/AdminLogin";
-import AppointmentForm from "../Patient/AppointmentForm ";
+import AppointmentForm from "../Patient/AppointmentForm";
 import FilterPage from "../Patient/FilterPage";
 
 export default function OverviewPage() {

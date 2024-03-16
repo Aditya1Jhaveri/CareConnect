@@ -11,7 +11,6 @@ import {
   MDBCardText,
   MDBCardBody,
 } from "mdb-react-ui-kit";
-// import { height } from "@mui/system";
 
 function PatientDashboard() {
   return (
