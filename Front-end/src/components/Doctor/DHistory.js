@@ -1,15 +1,15 @@
 import React from "react";
 // import { useEffect } from 'react'
-import { useState } from "react";
-import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
+// import { useState } from "react";
+import { TableContainer, Paper } from "@material-ui/core";
 import { User } from "./User";
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
 const DHistory = () => {
   // const [appointment, setAppointment] = useState([])
-  const [action1, setAction1] = useState(null);
-  const [key, setKey] = useState(null);
+  // const [action1, setAction1] = useState(null);
+  // const [key, setKey] = useState(null);
 
   // const pendingAppointment = appointment.filter(
   //   (pa) => pa.action1 === 'pending',

@@ -6,7 +6,7 @@ import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
 const Pendingappointment = () => {
-  const [key, setKey] = useState(null);
+  const [setKey] = useState(null);
   const [userPendata, setuserPendata] = useState([]);
   const [data, setData] = useState({
     toUser: "",

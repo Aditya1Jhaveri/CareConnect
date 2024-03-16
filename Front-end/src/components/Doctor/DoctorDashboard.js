@@ -8,7 +8,7 @@ import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
 
 const DoctorDashboard = (props) => {
   // const [action1, setAction1] = useState(null);
-  const [key, setKey] = useState(null);
+  const [setKey] = useState(null);
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
