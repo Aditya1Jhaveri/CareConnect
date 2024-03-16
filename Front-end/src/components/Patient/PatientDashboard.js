@@ -1,7 +1,6 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Button } from "@material-ui/core";
-
 import "./PatientDashboard.css";
 import PatientSidebar from "./PatSidebar";
 import {
