@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PatientDashboard from "./components/Patient/PatientDashboard";
 import PprofilePage from "./components/Patient/PatAccount";
-import AppointmentForm from "./components/Patient/AppointmentForm ";
+import AppointmentForm from "./components/Patient/AppointmentForm";
 
 function PatientRoute() {
   return (

@@ -21,7 +21,7 @@ import "react-calendar/dist/Calendar.css";
 import "react-toastify/dist/ReactToastify.css";
 import Bookappoint from "../../images/Bookappointment.jpg";
 import { useNavigate } from "react-router-dom";
-import "./Appointmentform.css";
+import "./AppointmentForm.css";
 
 const useStyles = makeStyles((theme) => ({
   appointmentPaper: {
