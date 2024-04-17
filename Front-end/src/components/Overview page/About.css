@@ -1,6 +1,80 @@
-.about{
-    width: 100%;
-    height: 100%;
-    padding-top: 80px;
-    padding-left: 600px;
-    }
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-image {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about-card {
+  width: 90%;
+  max-width: 1200px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.about-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.about-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.about-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.about-mission {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.about-why {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.about-why-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.about-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.about-button:hover {
+  background-color: #0056b3;
+}

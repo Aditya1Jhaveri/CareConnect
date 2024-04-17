@@ -9,8 +9,8 @@
 }
 
 @media (max-width: 800px) {
-  .eye-icon {
+  /* .eye-icon {
     transform: translateY(-80%);
     right: -100px;
-  }
+  } */
 }

@@ -69,7 +69,7 @@ label {
 .inner-container {
   display: flex;
   flex-direction: row;
-  width: 60%;
+  /* width: 60%; */
   padding-bottom: 70px;
 
   justify-content: space-evenly;
@@ -106,10 +106,10 @@ label {
     margin-top: 20px;
   }
 
-  .eye-icon {
+  /* .eye-icon {
     transform: translateY(-80%);
     right: -100px;
-  }
+  } */
 }
 
 @media only screen and (max-width: 950px) {
