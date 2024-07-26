@@ -65,12 +65,21 @@ const AppointmentForm = () => {
   const classes = useStyles();
 
   const [date, setDate] = useState(new Date());
-  const [time, setTime] = useState("");
 
   const handleDateChange = (date) => {
     setDate(date);
     formik.setFieldValue("date", date);
   };
+
+  // console.log("Test: ", date);
+
+  // Adjust for local time zone
+  const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+  const isoDate = localDate.toISOString().slice(0, 10).replace("T", " ");
+
+  // console.log("Test2:", isoDate);
+
+  const [time, setTime] = useState("");
 
   const handleTimeChange = (event) => {
     const selectedTime = event.target.value;
@@ -78,7 +87,6 @@ const AppointmentForm = () => {
     formik.setFieldValue("time", selectedTime);
   };
 
-  const isoDate = date.toISOString().slice(0, 10);
   const formik = useFormik({
     initialValues: {
       patientname: "",
@@ -129,14 +137,16 @@ const AppointmentForm = () => {
           weight: values.weight,
           city: values.city,
           address: values.address,
-          symptoms: values.symptoms,
+          symtoms: values.symptoms,
           time: time,
           date: isoDate,
           status: values.status,
         })
         .then((response) => {
           toast.success("Appointment booked successfully!");
-          navigate("/PatientLogin");
+          setTimeout(() => {
+            navigate("/PatientLogin");
+          }, 3000);
         })
         .catch((error) => {
           console.error("API error:", error);

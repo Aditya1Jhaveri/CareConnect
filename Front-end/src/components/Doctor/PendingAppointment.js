@@ -4,6 +4,7 @@ import axios from "axios";
 import { TableContainer, Paper, Select, MenuItem } from "@material-ui/core";
 import { Table } from "react-bootstrap";
 import DoctorSidebar from "./Doctor Sidebar/DoctorSidebar";
+import { ToastContainer, toast } from "react-toastify";
 
 const Pendingappointment = () => {
   const [setKey] = useState(null);
@@ -45,6 +46,7 @@ const Pendingappointment = () => {
         .put(`http://localhost:9595/api/v1/updatebooking/${appointmentId}`)
         .then((response) => {
           console.log(response.data);
+          toast.success("Appointment Approved!");
         })
         .catch((error) => {
           console.log(error);
@@ -110,6 +112,7 @@ const Pendingappointment = () => {
       <DoctorSidebar />
       <div className="dashboard">
         <div className="dashboardTableDetails">
+          <ToastContainer />
           <div className="table-responsive" style={{ margin: 20 }}>
             <p>Pending Appointments</p>
             <TableContainer component={Paper}>
@@ -188,7 +191,9 @@ const Pendingappointment = () => {
                                 appoint.time,
                                 appoint.date
                               );
-                              window.location.reload();
+                              setTimeout(() => {
+                                window.location.reload();
+                              }, 3000);
                             }}
                           >
                             Approved
